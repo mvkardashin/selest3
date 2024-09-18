@@ -1,0 +1,2008 @@
+<head>
+    <script defer="defer" src="/../dist/js/app.js"></script>
+    <link href="/../dist/css/app.css" rel="stylesheet">
+    <link href="/../css/style.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Репетиторы в Москве - Репетитор.ру</title>
+
+    <meta name="description"
+        content="Большая база репетиторов, бесплатный подбор и разнообразие предметов в Москве. Благодаря специальным алгоритмам подберем подходящего репетитора.">
+    <meta name="keywords" content="репетитор, ру, москва, ваш, найти, подбор">
+    <style data-tippy-stylesheet="">
+        .tippy-box[data-animation=fade][data-state=hidden] {
+            opacity: 0
+        }
+
+        [data-tippy-root] {
+            max-width: calc(100vw - 10px)
+        }
+
+        .tippy-box {
+            position: relative;
+            background-color: #333;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 1.4;
+            white-space: normal;
+            outline: 0;
+            transition-property: transform, visibility, opacity
+        }
+
+        .tippy-box[data-placement^=top]>.tippy-arrow {
+            bottom: 0
+        }
+
+        .tippy-box[data-placement^=top]>.tippy-arrow:before {
+            bottom: -7px;
+            left: 0;
+            border-width: 8px 8px 0;
+            border-top-color: initial;
+            transform-origin: center top
+        }
+
+        .tippy-box[data-placement^=bottom]>.tippy-arrow {
+            top: 0
+        }
+
+        .tippy-box[data-placement^=bottom]>.tippy-arrow:before {
+            top: -7px;
+            left: 0;
+            border-width: 0 8px 8px;
+            border-bottom-color: initial;
+            transform-origin: center bottom
+        }
+
+        .tippy-box[data-placement^=left]>.tippy-arrow {
+            right: 0
+        }
+
+        .tippy-box[data-placement^=left]>.tippy-arrow:before {
+            border-width: 8px 0 8px 8px;
+            border-left-color: initial;
+            right: -7px;
+            transform-origin: center left
+        }
+
+        .tippy-box[data-placement^=right]>.tippy-arrow {
+            left: 0
+        }
+
+        .tippy-box[data-placement^=right]>.tippy-arrow:before {
+            left: -7px;
+            border-width: 8px 8px 8px 0;
+            border-right-color: initial;
+            transform-origin: center right
+        }
+
+        .tippy-box[data-inertia][data-state=visible] {
+            transition-timing-function: cubic-bezier(.54, 1.5, .38, 1.11)
+        }
+
+        .tippy-arrow {
+            width: 16px;
+            height: 16px;
+            color: #333
+        }
+
+        .tippy-arrow:before {
+            content: "";
+            position: absolute;
+            border-color: transparent;
+            border-style: solid
+        }
+
+        .tippy-content {
+            position: relative;
+            padding: 5px 9px;
+            z-index: 1
+        }
+    </style>
+    <link href="https://repetitor.ru" rel="canonical">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="google-site-verification" content="_7tS9ge-pMl5N83s-ReLVg3jMapXdV4q8aJgxSXJs_4">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&amp;display=swap&amp;_v=20230321114533"
+        rel="stylesheet">
+    <link href="/v2023/css/style.min.css?_v=20240217143917" rel="stylesheet">
+
+
+    <meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token"
+        content="flhk8nSJxejzcuZqJyqqhnoFqqZ0vmk-sUFVDkBd9OMXEQOjJ9yUvKQcpx5Cbu3WE2br7ETfOGvWLR1_BWWViQ==">
+    <link href="/css/cityselector.css?v=1726583467" rel="stylesheet">
+    <style>
+        :root {
+            --vs-input-bg: #fff;
+            --vs-input-outline: #3b82f6;
+            --vs-input-placeholder-color: #52525b;
+            --vs-padding: .25rem .5rem;
+            --vs-border: 1px solid #e4e4e7;
+            --vs-border-radius: 4px;
+            --vs-font-size: 16px;
+            --vs-font-weight: 400;
+            --vs-font-family: inherit;
+            --vs-text-color: #18181b;
+            --vs-line-height: 1.5;
+            --vs-menu-offset-top: 8px;
+            --vs-menu-height: 200px;
+            --vs-menu-padding: 0;
+            --vs-menu-border: 1px solid #e4e4e7;
+            --vs-menu-bg: #fff;
+            --vs-menu-box-shadow: none;
+            --vs-menu-z-index: 2;
+            --vs-option-padding: 8px 12px;
+            --vs-option-font-size: var(--vs-font-size);
+            --vs-option-font-weight: var(--vs-font-weight);
+            --vs-option-text-color: var(--vs-text-color);
+            --vs-option-bg: var(--vs-menu-bg);
+            --vs-option-hover-color: #dbeafe;
+            --vs-option-focused-color: var(--vs-option-hover-color);
+            --vs-option-selected-color: #93c5fd;
+            --vs-option-disabled-color: #f4f4f5;
+            --vs-option-disabled-text-color: #52525b;
+            --vs-multi-value-gap: 4px;
+            --vs-multi-value-padding: 4px;
+            --vs-multi-value-font-size: 14px;
+            --vs-multi-value-font-weight: 400;
+            --vs-multi-value-line-height: 1;
+            --vs-multi-value-text-color: #3f3f46;
+            --vs-multi-value-bg: #f4f4f5;
+            --vs-multi-value-xmark-size: 16px;
+            --vs-multi-value-xmark-color: var(--vs-multi-value-text-color);
+            --vs-indicators-gap: 4px;
+            --vs-icon-size: 20px;
+            --vs-icon-color: var(--vs-text-color);
+            --vs-dropdown-transition: transform .25s ease-out
+        }
+
+        .vue-select[data-v-8ce3e5e3] {
+            position: relative;
+            box-sizing: border-box;
+            width: 100%
+        }
+
+        .vue-select[data-v-8ce3e5e3] * {
+            box-sizing: border-box
+        }
+
+        .vue-select.open .single-value[data-v-8ce3e5e3] {
+            position: absolute;
+            opacity: .4
+        }
+
+        .vue-select.open .dropdown-icon[data-v-8ce3e5e3] {
+            transform: rotate(180deg)
+        }
+
+        .vue-select.typing .single-value[data-v-8ce3e5e3] {
+            opacity: 0
+        }
+
+        .control[data-v-8ce3e5e3] {
+            display: flex;
+            min-height: 32px;
+            border: var(--vs-border);
+            border-radius: var(--vs-border-radius);
+            background-color: var(--vs-input-bg)
+        }
+
+        .control.focused[data-v-8ce3e5e3] {
+            box-shadow: 0 0 0 1px var(--vs-input-outline);
+            border-color: var(--vs-input-outline)
+        }
+
+        .value-container[data-v-8ce3e5e3] {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            flex-basis: 100%;
+            flex-grow: 1;
+            padding: var(--vs-padding)
+        }
+
+        .value-container.multi[data-v-8ce3e5e3] {
+            gap: var(--vs-multi-value-gap)
+        }
+
+        .single-value[data-v-8ce3e5e3] {
+            display: flex;
+            align-items: center;
+            font-size: var(--vs-font-size);
+            font-weight: var(--vs-font-weight);
+            font-family: var(--vs-font-family);
+            line-height: var(--vs-line-height);
+            color: var(--vs-text-color);
+            z-index: 0
+        }
+
+        .multi-value[data-v-8ce3e5e3] {
+            appearance: none;
+            display: flex;
+            align-items: center;
+            gap: var(--vs-multi-value-gap);
+            padding: var(--vs-multi-value-padding);
+            margin: 0;
+            border: 0;
+            font-size: var(--vs-multi-value-font-size);
+            font-weight: var(--vs-multi-value-font-weight);
+            color: var(--vs-multi-value-text-color);
+            line-height: var(--vs-multi-value-line-height);
+            background: var(--vs-multi-value-bg);
+            outline: none;
+            cursor: pointer
+        }
+
+        .multi-value svg[data-v-8ce3e5e3] {
+            width: var(--vs-multi-value-xmark-size);
+            height: var(--vs-multi-value-xmark-size);
+            fill: var(--vs-multi-value-xmark-color)
+        }
+
+        .search-input[data-v-8ce3e5e3] {
+            appearance: none;
+            display: inline-block;
+            max-width: 100%;
+            flex-grow: 1;
+            width: 0;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            background: none;
+            font-size: var(--vs-font-size);
+            font-family: var(--vs-font-family);
+            line-height: var(--vs-line-height);
+            color: var(--vs-text-color);
+            outline: none;
+            z-index: 1
+        }
+
+        .search-input[data-v-8ce3e5e3]::placeholder {
+            color: var(--vs-input-placeholder-color)
+        }
+
+        .indicators-container[data-v-8ce3e5e3] {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            gap: var(--vs-indicators-gap);
+            padding: var(--vs-padding)
+        }
+
+        .clear-button[data-v-8ce3e5e3] {
+            appearance: none;
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            width: var(--vs-icon-size);
+            height: var(--vs-icon-size);
+            fill: var(--vs-icon-color);
+            background: none;
+            outline: none;
+            cursor: pointer
+        }
+
+        .dropdown-icon[data-v-8ce3e5e3] {
+            appearance: none;
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            width: var(--vs-icon-size);
+            height: var(--vs-icon-size);
+            fill: var(--vs-icon-color);
+            background: none;
+            outline: none;
+            cursor: pointer;
+            transition: var(--vs-dropdown-transition)
+        }
+
+        .menu[data-v-8ce3e5e3] {
+            position: absolute;
+            left: 0;
+            right: 0;
+            padding: var(--vs-menu-padding);
+            margin-top: var(--vs-menu-offset-top);
+            max-height: var(--vs-menu-height);
+            overflow-y: auto;
+            border: var(--vs-menu-border);
+            border-radius: var(--vs-border-radius);
+            box-shadow: var(--vs-menu-box-shadow);
+            background-color: var(--vs-menu-bg);
+            z-index: var(--vs-menu-z-index)
+        }
+
+        .menu-option[data-v-8ce3e5e3] {
+            display: flex;
+            width: 100%;
+            border: 0;
+            margin: 0;
+            padding: var(--vs-option-padding);
+            font-size: var(--vs-option-font-size);
+            font-weight: var(--vs-option-font-weight);
+            font-family: var(--vs-font-family);
+            color: var(--vs-option-text-color);
+            background-color: var(--vs-option-bg);
+            text-align: -webkit-auto;
+            cursor: pointer
+        }
+
+        .menu-option[data-v-8ce3e5e3]:hover {
+            background-color: var(--vs-option-hover-color)
+        }
+
+        .menu-option.focused[data-v-8ce3e5e3] {
+            background-color: var(--vs-option-focused-color)
+        }
+
+        .menu-option.selected[data-v-8ce3e5e3] {
+            background-color: var(--vs-option-selected-color)
+        }
+
+        .menu-option.disabled[data-v-8ce3e5e3] {
+            background-color: var(--vs-option-disabled-color);
+            color: var(--vs-option-disabled-text-color)
+        }
+
+        .no-results[data-v-8ce3e5e3] {
+            padding: var(--vs-option-padding);
+            font-size: var(--vs-font-size);
+            font-family: var(--vs-font-family);
+            color: var(--vs-text-color)
+        }
+    </style>
+    <style>
+        .lcep-el-wrap {
+            position: relative;
+        }
+
+        .lcep-el-wrap>textarea,
+        .lcep-el-wrap>input {
+            padding-right: 27px;
+        }
+
+        .lcep-trigger {
+            display: inline-block;
+            position: absolute;
+            cursor: pointer;
+        }
+
+        .lcep-trigger svg {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            opacity: 0.8;
+            fill: #282828;
+            transition: all .15s ease;
+        }
+
+        .lcep-trigger svg:hover {
+            fill: #202020;
+        }
+
+        #lc-emoji-picker,
+        #lc-emoji-picker * {
+            box-sizing: border-box;
+        }
+
+        #lc-emoji-picker {
+            visibility: hidden;
+            z-index: -100;
+            opacity: 0;
+            position: absolute;
+            top: -9999px;
+            z-index: 999;
+            width: 280px;
+            min-height: 320px;
+            background: #fff;
+            box-shadow: 0px 2px 13px -2px rgba(0, 0, 0, 0.18);
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            transform: scale(0.85);
+            transition: opacity .2s ease, transform .2s ease;
+        }
+
+        #lc-emoji-picker.lcep-shown {
+            visibility: visible;
+            z-index: 999;
+            transform: none;
+            opacity: 1;
+
+        }
+
+        #lc-emoji-picker .lcep-all-categories {
+            height: 260px;
+            overflow-y: auto;
+            padding: 0 5px 20px 10px;
+        }
+
+        #lc-emoji-picker .lcep-category:not(:first-child) {
+            margin-top: 22px;
+        }
+
+        #lc-emoji-picker .lcep-container-title {
+            color: black;
+            margin: 10px 0;
+            text-indent: 10px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        #lc-emoji-picker * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            color: #666;
+            font-family: sans-serif;
+            user-select: none;
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        }
+
+        .lcep ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .lcep-grid {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .lcep-grid>li {
+            cursor: pointer;
+            flex: 0 0 calc(100% / 6);
+            max-width: calc(100% / 6);
+            height: 41px;
+            min-width: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            border-radius: 2px;
+            transition: all .2s ease;
+        }
+
+        .lcep-grid>li:hover {
+            background: #99c9ef;
+        }
+
+        ul.lcep-hidden-emoji-cat,
+        .lcep-grid>li.lcep-hidden-emoji {
+            display: none;
+        }
+
+        .lcep-grid>li>a {
+            display: block;
+            font-size: 21px;
+            margin: 0;
+            padding: 22px 0px;
+            line-height: 0;
+        }
+
+        .lcep-categories ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        .lcep-categories li {
+            transition: all .3s ease;
+            flex: 0 0 calc(100% / 7);
+            display: flex;
+            max-width: calc(100% / 7);
+        }
+
+        .lcep-categories li.lcep-active {
+            box-shadow: 0 -3px 0 #48a6f0 inset;
+        }
+
+        .lcep-categories a {
+            padding: 7px !important;
+            font-size: 19px;
+            height: 42px;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            filter: grayscale(100%) contrast(150%);
+        }
+
+        .lcep-categories a:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, .2);
+            cursor: pointer;
+            transition: background .25s ease;
+        }
+
+        .lcep-categories li:not(.lcep-active):hover a:before {
+            background: rgba(255, 255, 255, .4);
+        }
+
+        .lcep-search {
+            position: relative;
+            border-top: 1px solid #ddd;
+            padding: 10px 6px !important;
+        }
+
+        .lcep-search input {
+            width: 100%;
+            border: none;
+            padding: 8px 30px 8px 10px !important;
+            outline: none;
+            background: #fff;
+            font-size: 13px;
+            color: #616161;
+            border: 2px solid #ddd;
+            height: 30px;
+            border-radius: 25px;
+            user-select: auto !important;
+        }
+
+        .lcep-search svg,
+        .lcep-search i {
+            width: 14px;
+            height: 14px;
+            position: absolute;
+            right: 16px;
+            top: 18px;
+            fill: #444;
+            cursor: pointer;
+        }
+
+        .lcep-search i {
+            color: #444;
+            font-size: 22px;
+            font-family: arial;
+            line-height: 14px;
+            transition: opacity .15s ease;
+        }
+
+        .lcep-search i:hover {
+            opacity: .8;
+        }
+
+        .lcep-searching svg,
+        .lcep-search:not(.lcep-searching) i {
+            display: none;
+        }
+
+        #lc-emoji-picker img.emoji {
+            min-width: 23px;
+            height: auto !important;
+        }
+
+        #lc-emoji-picker .lcep-no-results {
+            font-size: 90%;
+            display: block;
+            text-align: center;
+            margin-top: 1em;
+        }
+    </style>
+</head>
+
+
+<body class="body--fon" data-select2-id="select2-data-7-p9e2">
+    <main class="main" data-select2-id="select2-data-6-msot">
+        <header class="header" data-fixed="">
+            <div class="container">
+                <a class="header_logo" href="/repetitors"><img src="/v2023/img/logo.png" alt="Repetitor.ru"
+                        title="Repetitor.ru"></a>
+                <div class="header__city custom-select">
+                    <select-city data-v-app="">
+                        <div data-v-15f970bb="" class="city-selector">
+                            <div data-v-8ce3e5e3="" data-v-15f970bb="" dir="auto" class="vue-select">
+                                <div data-v-8ce3e5e3="" class="control">
+                                    <div data-v-8ce3e5e3="" class="value-container" role="combobox"
+                                        aria-expanded="false" aria-describedby="Выберите город"
+                                        aria-description="Выберите город" aria-label="Москва">
+                                        <div data-v-8ce3e5e3="" class="single-value">Москва</div><!----><input
+                                            data-v-8ce3e5e3="" class="search-input" type="text" aria-autocomplete="list"
+                                            autocapitalize="none" autocomplete="off" autocorrect="off"
+                                            spellcheck="false" tabindex="0" placeholder="">
+                                    </div>
+                                    <div data-v-8ce3e5e3="" class="indicators-container"><!----><button
+                                            data-v-8ce3e5e3="" type="button" class="dropdown-icon" tabindex="-1"><svg
+                                                data-v-8ce3e5e3="" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg></button></div>
+                                </div><!---->
+                            </div>
+                        </div>
+                    </select-city>
+                </div>
+                <ul class="header__links">
+                    <li>
+                        <a href="/blog">Блог</a>
+                    </li>
+                    <li>
+                        <a href="/repetitors/stat-repetitorom">Стать репетитором</a>
+                    </li>
+                </ul>
+                <a class="header__login-btn button button--transparent" href="https://lk.repetitor.ru"
+                    aria-label="Open login modal">Кардашин М.</a> <button
+                    class="header__open-menu-btn button button--transparent" data-modal="modal-menu"
+                    aria-label="Open menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </header>
+
+        <select-module city-code="repetitors" initial-subject="1" initial-category initial-online="0" initial-age=""
+            initial-price="min=&amp;max=" city="1" initial-geo-type="" initial-geo-id=""></select-module>
+        <div itemscope="" itemtype="http://schema.org/Product">
+            <meta itemprop="description" content="Все репетиторы в Москве на repetitor.ru.
+                Дистанционные занятия, приятные цены, реальные отзывы. Бесплатный подбор репетитора">
+            <div itemscope="" itemtype="https://schema.org/AggregateOffer" itemprop="offers">
+                <meta itemprop="priceCurrency" content="RUB">
+                <meta itemprop="lowPrice" content="800">
+                <meta itemprop="highPrice" content="2500">
+                <meta itemprop="offerCount" content="6250">
+            </div>
+            <div itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
+                <meta itemprop="reviewCount" content="11578">
+                <meta itemprop="ratingValue" content="4.88">
+                <meta itemprop="bestRating" content="5">
+                <meta itemprop="worstRating" content="1">
+            </div>
+        </div>
+        <section id="cover" class="cover">
+            <div class="container">
+                <div class="cover__selection" data-select2-id="select2-data-5-go6n">
+                    <p class="cover__title">Найдите репетитора<br> под ваши цели</p>
+                    
+                        <select-wizard style="width: 100%;"></select-wizard>
+                       
+                    <div class="cover__example">
+                        Например,
+                        <span id="englbut" onclick="
+                        $('select-wizard').attr('initial-value',1); $('select-wizard').attr('initialValue',1);$('select-wizard').trigger('change')"
+                            class="tag">Английский язык</span> или
+                        <span onclick="$('#select-wizard').val('35'); $('#select-wizard').trigger('change')"
+                            class="tag">Информатика</span>
+                    </div>
+                </div>
+                <ul class="cover__achievements">
+                    <li class="achievement">
+                        <span class="achievement__value">15 000</span>
+                        <span class="achievement__type">репетиторов</span>
+                    </li>
+                    <li class="achievement">
+                        <span class="achievement__value">7000</span>
+                        <span class="achievement__type">реальных отзывов</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section id="catalog" class="catalog-short">
+            <div class="container">
+                <div class="catalog-short__head">
+                    <h1 class="catalog-short__title title" itemprop="name">
+                        Репетиторы в Москве </h1>
+                    <a class="catalog-short__more" href="/repetitors/catalog">Все предметы</a>
+                </div>
+
+                <ul class="catalog-short__list">
+                    <li class="catalog-category">
+                        <h3 class="catalog-category__name">Школьные предметы</h3>
+                        <ul class="catalog-category__list">
+                            <li class="catalog-category__item"><a href="/repetitors/anglijskij-yazyk">Английский
+                                    язык</a></li>
+                            <li class="catalog-category__item"><a
+                                    href="/repetitors/matematika-elementarnaya">Математика</a></li>
+                            <li class="catalog-category__item"><a href="/repetitors/russkij-yazyk">Русский язык</a></li>
+                            <li class="catalog-category__item"><a href="/repetitors/nachalnaya-shkola">Начальные
+                                    классы</a></li>
+                            <li class="catalog-category__item"><a href="/repetitors/fizika">Физика</a></li>
+                            <li class="catalog-category__item"><a href="/repetitors/himiya">Химия</a></li>
+                        </ul>
+                    </li>
+                    <li class="catalog-category">
+                        <h3 class="catalog-category__name">Иностранные языки</h3>
+                        <ul class="catalog-category__list">
+                            <li class="catalog-category__item"><a href="/repetitors/anglijskij-yazyk">Английский
+                                    язык</a></li>
+                            <li class="catalog-category__item"><a href="/repetitors/nemeckij-yazyk">Немецкий язык</a>
+                            </li>
+                            <li class="catalog-category__item"><a href="/repetitors/ispanskij-yazyk">Испанский язык</a>
+                            </li>
+                            <li class="catalog-category__item"><a href="/repetitors/francuzskij-yazyk">Французский
+                                    язык</a></li>
+                            <li class="catalog-category__item"><a href="/repetitors/italyanskij-yazyk">Итальянский
+                                    язык</a></li>
+                            <li class="catalog-category__item"><a href="/repetitors/kitajskij-yazyk">Китайский язык</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="catalog-category">
+                        <h3 class="catalog-category__name">Подготовка к ЕГЭ</h3>
+                        <ul class="catalog-category__list">
+                            <li class="catalog-category__item"><a
+                                    href="/repetitors/anglijskij-yazyk/ege-i-olimpiady">ЕГЭ по английскому</a></li>
+                            <li class="catalog-category__item"><a
+                                    href="/repetitors/matematika-elementarnaya/ege-olimpiady">ЕГЭ по математике</a></li>
+                            <li class="catalog-category__item"><a href="/repetitors/russkij-yazyk/ege">ЕГЭ по
+                                    русскому</a></li>
+                            <li class="catalog-category__item"><a href="/repetitors/fizika/ege-olimpiady">ЕГЭ по
+                                    физике</a></li>
+                            <li class="catalog-category__item"><a href="/repetitors/obshchestvoznanie/ege-olimpiady">ЕГЭ
+                                    по обществознанию</a></li>
+                            <li class="catalog-category__item"><a href="/repetitors/biologiya/ege-olimpiady">ЕГЭ по
+                                    биологии</a></li>
+                        </ul>
+                    </li>
+                    <li class="catalog-category">
+                        <h3 class="catalog-category__name">Подготовка к ОГЭ</h3>
+                        <ul class="catalog-category__list">
+                            <li class="catalog-category__item"><a href="/repetitors/russkij-yazyk/gia-oge">ОГЭ по
+                                    русскому языку</a></li>
+                            <li class="catalog-category__item"><a
+                                    href="/repetitors/matematika-elementarnaya/gia-oge-olimpiady">ОГЭ по математике</a>
+                            </li>
+                            <li class="catalog-category__item"><a href="/repetitors/anglijskij-yazyk/gia-oge">ОГЭ по
+                                    английскому языку</a></li>
+                            <li class="catalog-category__item"><a
+                                    href="/repetitors/obshchestvoznanie/gia-oge-olimpiady">ОГЭ по обществознанию</a>
+                            </li>
+                            <li class="catalog-category__item"><a href="/repetitors/fizika/gia-oge-olimpiady">ОГЭ по
+                                    физике</a></li>
+                            <li class="catalog-category__item"><a href="/repetitors/himiya/gia-oge-olimpiady">ОГЭ по
+                                    химии</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="catalog-short__circle-first bg-circle bg-circle--green"></div>
+            <div class="catalog-short__circle-second bg-circle bg-circle--blue"></div>
+        </section>
+        <section id="reviews" class="reviews">
+            <div class="container">
+                <div class="reviews__head">
+                    <h2 class="reviews__title title">Отзывы о преподавателях</h2>
+                    <div class="reviews__arrows">
+                        <button class="slider-arrow slider-arrow--prev slick-arrow" aria-label="Предыдущий слайд"
+                            style="">
+                            <svg>
+                                <use xlink:href="/v2023/img/sprite.svg#arrow"></use>
+                            </svg>
+                        </button>
+                        <button class="slider-arrow slider-arrow--next slick-arrow" aria-label="Следующий слайд"
+                            style="">
+                            <svg>
+                                <use xlink:href="/v2023/img/sprite.svg#arrow"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <ul class="reviews__list slick-initialized slick-slider">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="slick-list draggable">
+                        <div class="slick-track"
+                            style="opacity: 1; width: 7245px; transform: translate3d(-345px, 0px, 0px);">
+                            <li class="review slick-slide slick-cloned" style="width: 335px;" tabindex="-1"
+                                data-slick-index="-1" id="" aria-hidden="true">
+                                <div class="review__head">
+                                    <a href="/view/repetitor-nachalnyh-klassov-mohova-irina" class="review__avatar"
+                                        tabindex="-1">
+                                        <img src="https://s.repetitor.ru/thumbnail/photo/250.20ed888f9e41925d1598ba9f917a1f67.1613199162.jpg"
+                                            alt="Мохова Ирина Борисовна" loading="lazy"> </a>
+                                    <div class="review__tutor-about">
+                                        <h3 class="review__tutor-name">
+                                            <a href="/view/repetitor-nachalnyh-klassov-mohova-irina" tabindex="-1">
+                                                Мохова Ирина Борисовна </a>
+                                        </h3>
+                                        <div class="review__tutor-data">
+                                            <a class="tag" href="/repetitors/nachalnaya-shkola" tabindex="-1">
+                                                Начальные классы </a>
+                                            <a href="/view/repetitor-nachalnyh-klassov-mohova-irina"
+                                                class="review__tutor-count" tabindex="-1">
+                                                7 отзывов </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__info">
+                                    <div class="rating-stars">
+                                        <div class="rating-stars__back">
+                                            <svg>
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="rating-stars__front" style="width: 100%;">
+                                            <svg class="rating-stars__back">
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review__from">Отзыв от Татьяна</div>
+                                </div>
+                                <p class="review__text hidden-text">
+                                    Занимаемся с преподавателем русским языком. Сыну (9 лет) очень нравится. Ирина
+                                    Борисовна нашла контакт с ребенком. Задания интересные и разнообразные, помогли
+                                    ребенку стать более уверенным в школе на уроках русского языка. Раньше оценки были
+                                    2-3. Сейчас проскальзывают 4. Быстрых результатов не ... </p>
+                            </li>
+                            <li class="review slick-slide slick-current slick-active" style="width: 335px;" tabindex="0"
+                                data-slick-index="0" aria-hidden="false">
+                                <div class="review__head">
+                                    <a href="/view/repetitor-po-fizike-litvinova-elena-aleksandrovna-29282"
+                                        class="review__avatar" tabindex="0">
+                                        <img src="https://s.repetitor.ru/thumbnail/photo/250.dc9100d35ec24b7ab2f7c6185567b1f0.1724947206.jpg"
+                                            alt="Литвинова Елена Александровна" loading="lazy"> </a>
+                                    <div class="review__tutor-about">
+                                        <h3 class="review__tutor-name">
+                                            <a href="/view/repetitor-po-fizike-litvinova-elena-aleksandrovna-29282"
+                                                tabindex="0">
+                                                Литвинова Елена Александровна </a>
+                                        </h3>
+                                        <div class="review__tutor-data">
+                                            <a class="tag" href="/repetitors/fizika" tabindex="0">
+                                                Физика </a>
+                                            <a href="/view/repetitor-po-fizike-litvinova-elena-aleksandrovna-29282"
+                                                class="review__tutor-count" tabindex="0">
+                                                4 отзыва </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__info">
+                                    <div class="rating-stars">
+                                        <div class="rating-stars__back">
+                                            <svg>
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="rating-stars__front" style="width: 100%;">
+                                            <svg class="rating-stars__back">
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review__from">Отзыв от Юлия</div>
+                                </div>
+                                <p class="review__text hidden-text">
+                                    5-отлично. </p>
+                            </li>
+                            <li class="review slick-slide" style="width: 335px;" tabindex="-1" data-slick-index="1"
+                                aria-hidden="true">
+                                <div class="review__head">
+                                    <a href="/view/repetitor-po-anglijskomu-yazyku-ribeiro-francis22595"
+                                        class="review__avatar" tabindex="-1">
+                                        <img src="https://s.repetitor.ru/thumbnail/photo/250.950833f009abb463cb1bf43338e829d7.1641637809.jpg"
+                                            alt="Ribeiro Francis " loading="lazy"> </a>
+                                    <div class="review__tutor-about">
+                                        <h3 class="review__tutor-name">
+                                            <a href="/view/repetitor-po-anglijskomu-yazyku-ribeiro-francis22595"
+                                                tabindex="-1">
+                                                Ribeiro Francis </a>
+                                        </h3>
+                                        <div class="review__tutor-data">
+                                            <a class="tag" href="/repetitors/anglijskij-yazyk" tabindex="-1">
+                                                Английский язык </a>
+                                            <a href="/view/repetitor-po-anglijskomu-yazyku-ribeiro-francis22595"
+                                                class="review__tutor-count" tabindex="-1">
+                                                1 отзыв </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__info">
+                                    <div class="rating-stars">
+                                        <div class="rating-stars__back">
+                                            <svg>
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="rating-stars__front" style="width: 100%;">
+                                            <svg class="rating-stars__back">
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review__from">Отзыв от Ярослав</div>
+                                </div>
+                                <p class="review__text hidden-text">
+                                    Ребёнку 10 лет, занимается английским со второго класса. Ему очень понравилось,
+                                    занятие прошло в теплой дружественной атмосфере, полное погружение, нет языкового
+                                    барьера. Занятие было интересным) успели поиграть в игры, изучить тему, и на тему
+                                    придумать предложения, применимые в разговорной речи, ... </p>
+                            </li>
+                            <li class="review slick-slide" style="width: 335px;" tabindex="-1" data-slick-index="2"
+                                aria-hidden="true">
+                                <div class="review__head">
+                                    <a href="/view/repetitor-po-biologii-shiryaeva-anna-aleksandrovna-30931"
+                                        class="review__avatar" tabindex="-1">
+                                        <img src="https://s.repetitor.ru/thumbnail/photo/250.0465cf2eec6b9d7bd1ddf984ecf6e5d4.1671978964.jpg"
+                                            alt="Ширяева Анна Александровна" loading="lazy"> </a>
+                                    <div class="review__tutor-about">
+                                        <h3 class="review__tutor-name">
+                                            <a href="/view/repetitor-po-biologii-shiryaeva-anna-aleksandrovna-30931"
+                                                tabindex="-1">
+                                                Ширяева Анна Александровна </a>
+                                        </h3>
+                                        <div class="review__tutor-data">
+                                            <a class="tag" href="/repetitors/biologiya" tabindex="-1">
+                                                Биология </a>
+                                            <a href="/view/repetitor-po-biologii-shiryaeva-anna-aleksandrovna-30931"
+                                                class="review__tutor-count" tabindex="-1">
+                                                10 отзывов </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__info">
+                                    <div class="rating-stars">
+                                        <div class="rating-stars__back">
+                                            <svg>
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="rating-stars__front" style="width: 100%;">
+                                            <svg class="rating-stars__back">
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review__from">Отзыв от Полина</div>
+                                </div>
+                                <p class="review__text hidden-text">
+                                    Дочь очень довольна Анной Александровной. Есть успехи в школе. Это радует.
+                                    Преподаватель нашел общий язык с ребенком. Надеюсь на успешную сдачу ОГЭ. </p>
+                            </li>
+                            <li class="review slick-slide" style="width: 335px;" tabindex="-1" data-slick-index="3"
+                                aria-hidden="true">
+                                <div class="review__head">
+                                    <a href="/view/repetitor-po-anglijskomu-yazyku-poplevina-tatyana-yurevna-30150"
+                                        class="review__avatar" tabindex="-1">
+                                        <img src="https://s.repetitor.ru/thumbnail/photo/250.2129685d66dd4137ff571f01015924c2.1697280008.jpg"
+                                            alt="Поплевина Татьяна Юрьевна" loading="lazy"> </a>
+                                    <div class="review__tutor-about">
+                                        <h3 class="review__tutor-name">
+                                            <a href="/view/repetitor-po-anglijskomu-yazyku-poplevina-tatyana-yurevna-30150"
+                                                tabindex="-1">
+                                                Поплевина Татьяна Юрьевна </a>
+                                        </h3>
+                                        <div class="review__tutor-data">
+                                            <a class="tag" href="/repetitors/anglijskij-yazyk" tabindex="-1">
+                                                Английский язык </a>
+                                            <a href="/view/repetitor-po-anglijskomu-yazyku-poplevina-tatyana-yurevna-30150"
+                                                class="review__tutor-count" tabindex="-1">
+                                                22 отзыва </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__info">
+                                    <div class="rating-stars">
+                                        <div class="rating-stars__back">
+                                            <svg>
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="rating-stars__front" style="width: 100%;">
+                                            <svg class="rating-stars__back">
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review__from">Отзыв от Михаил</div>
+                                </div>
+                                <p class="review__text hidden-text">
+                                    Татьяна Юрьевна готовит сына, 11 класс, к сдаче ЕГЭ по английскому. Выбрали данного
+                                    преподавателя, потому что у неё большой опыт подготовки к экзаменам и
+                                    соответствующая сертификация. Занимаемся уже третий месяц. Татьяна Юрьевна
+                                    определила уровень языка Михаила и адаптирует занятия к его знаниям. ... </p>
+                            </li>
+                            <li class="review slick-slide" style="width: 335px;" tabindex="-1" data-slick-index="4"
+                                aria-hidden="true">
+                                <div class="review__head">
+                                    <a href="/view/repetitor-po-himii-kabluka-oksana-feliksovna" class="review__avatar"
+                                        tabindex="-1">
+                                        <img src="https://s.repetitor.ru/thumbnail/photo/250.2ab993ebc234e36edfffd6b826c09715.1613567644.jpg"
+                                            alt="Каблука Оксана Феликсовна" loading="lazy"> </a>
+                                    <div class="review__tutor-about">
+                                        <h3 class="review__tutor-name">
+                                            <a href="/view/repetitor-po-himii-kabluka-oksana-feliksovna" tabindex="-1">
+                                                Каблука Оксана Феликсовна </a>
+                                        </h3>
+                                        <div class="review__tutor-data">
+                                            <a class="tag" href="/repetitors/himiya" tabindex="-1">
+                                                Химия </a>
+                                            <a href="/view/repetitor-po-himii-kabluka-oksana-feliksovna"
+                                                class="review__tutor-count" tabindex="-1">
+                                                26 отзывов </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__info">
+                                    <div class="rating-stars">
+                                        <div class="rating-stars__back">
+                                            <svg>
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="rating-stars__front" style="width: 100%;">
+                                            <svg class="rating-stars__back">
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review__from">Отзыв от Данил</div>
+                                </div>
+                                <p class="review__text hidden-text">
+                                    Огромное спасибо за занятия с сыном. Наконец то ребёнку стала нравится химия. С
+                                    первого занятия нашли общ ц язык. Сын занимается с удовольствием!!!! В дневнике
+                                    теперь только положительные отметки!!!! </p>
+                            </li>
+                            <li class="review slick-slide" style="width: 335px;" tabindex="-1" data-slick-index="5"
+                                aria-hidden="true">
+                                <div class="review__head">
+                                    <a href="/view/repetitor-po-matematike-mashcheryakova-nina-kuzminichna23877"
+                                        class="review__avatar" tabindex="-1">
+                                        <img src="https://s.repetitor.ru/thumbnail/photo/250.bfe9085e843cf9cd077672fd968dfaa3.1613567597.jpg"
+                                            alt="Мещерякова Нина Кузьминична" loading="lazy"> </a>
+                                    <div class="review__tutor-about">
+                                        <h3 class="review__tutor-name">
+                                            <a href="/view/repetitor-po-matematike-mashcheryakova-nina-kuzminichna23877"
+                                                tabindex="-1">
+                                                Мещерякова Нина Кузьминична </a>
+                                        </h3>
+                                        <div class="review__tutor-data">
+                                            <a class="tag" href="/repetitors/matematika-elementarnaya" tabindex="-1">
+                                                Математика </a>
+                                            <a href="/view/repetitor-po-matematike-mashcheryakova-nina-kuzminichna23877"
+                                                class="review__tutor-count" tabindex="-1">
+                                                3 отзыва </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__info">
+                                    <div class="rating-stars">
+                                        <div class="rating-stars__back">
+                                            <svg>
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="rating-stars__front" style="width: 100%;">
+                                            <svg class="rating-stars__back">
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review__from">Отзыв от Кира</div>
+                                </div>
+                                <p class="review__text hidden-text">
+                                    Замечательный преподаватель. Материал преподносит в понятной для ребёнка форме.
+                                    После нескольких занятий заметен прогресс. Рекомендую данного репетитора! </p>
+                            </li>
+                            <li class="review slick-slide" style="width: 335px;" tabindex="-1" data-slick-index="6"
+                                aria-hidden="true">
+                                <div class="review__head">
+                                    <a href="/view/repetitor-po-fizike-tolstenko-yurij-ivanovich-28622"
+                                        class="review__avatar" tabindex="-1">
+                                        <img src="https://s.repetitor.ru/thumbnail/photo/250.2daa6666517d84e1f47d658b7d842eef.1624959427.jpg"
+                                            alt="Толстенко Юрий Иванович" loading="lazy"> </a>
+                                    <div class="review__tutor-about">
+                                        <h3 class="review__tutor-name">
+                                            <a href="/view/repetitor-po-fizike-tolstenko-yurij-ivanovich-28622"
+                                                tabindex="-1">
+                                                Толстенко Юрий Иванович </a>
+                                        </h3>
+                                        <div class="review__tutor-data">
+                                            <a class="tag" href="/kaliningrad/fizika" tabindex="-1">
+                                                Физика </a>
+                                            <a href="/view/repetitor-po-fizike-tolstenko-yurij-ivanovich-28622"
+                                                class="review__tutor-count" tabindex="-1">
+                                                4 отзыва </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__info">
+                                    <div class="rating-stars">
+                                        <div class="rating-stars__back">
+                                            <svg>
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="rating-stars__front" style="width: 100%;">
+                                            <svg class="rating-stars__back">
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review__from">Отзыв от Евгения</div>
+                                </div>
+                                <p class="review__text hidden-text">
+                                    Толстенко Юрий Иванович занимается с моим сыном уже несколько месяцев. Сын стал
+                                    лучше разбираться в школьной программе, появились хорошие отметки. Юрий Иванович
+                                    внимательный и доброжелательный человек, талантливый преподаватель. Объясняет
+                                    предмет доступным языком. </p>
+                            </li>
+                            <li class="review slick-slide" style="width: 335px;" tabindex="-1" data-slick-index="7"
+                                aria-hidden="true">
+                                <div class="review__head">
+                                    <a href="/view/repetitor-po-geografii-dyakonov-mihail-yurevich"
+                                        class="review__avatar" tabindex="-1">
+                                        <img src="https://s.repetitor.ru/thumbnail/photo/250.232c8c6b478e19c38522c2f00c216277.1611229186.jpg"
+                                            alt="Дьяконов Михаил Юрьевич" loading="lazy"> </a>
+                                    <div class="review__tutor-about">
+                                        <h3 class="review__tutor-name">
+                                            <a href="/view/repetitor-po-geografii-dyakonov-mihail-yurevich"
+                                                tabindex="-1">
+                                                Дьяконов Михаил Юрьевич </a>
+                                        </h3>
+                                        <div class="review__tutor-data">
+                                            <a class="tag" href="/repetitors/geografiya" tabindex="-1">
+                                                География </a>
+                                            <a href="/view/repetitor-po-geografii-dyakonov-mihail-yurevich"
+                                                class="review__tutor-count" tabindex="-1">
+                                                2 отзыва </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__info">
+                                    <div class="rating-stars">
+                                        <div class="rating-stars__back">
+                                            <svg>
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="rating-stars__front" style="width: 40%;">
+                                            <svg class="rating-stars__back">
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review__from">Отзыв от Эльвира</div>
+                                </div>
+                                <p class="review__text hidden-text">
+                                    Преподаватель ориентируется по учебнику. Начал урок глядя в него и выискивая: что
+                                    дальше делать.Не предупредил, что ученику необходимо иметь учебник и атлас.
+                                    Почему-то решил, что они по умолчанию есть. Хотя при предварительном разговоре
+                                    подробно рассказали, что ребёнок учился в другой системе и ... </p>
+                            </li>
+                            <li class="review slick-slide" style="width: 335px;" tabindex="-1" data-slick-index="8"
+                                aria-hidden="true">
+                                <div class="review__head">
+                                    <a href="/view/repetitor-po-obshchestvoznaniyu-ovcharova-olga-viktorovna24212"
+                                        class="review__avatar" tabindex="-1">
+                                        <img src="https://s.repetitor.ru/thumbnail/photo/250.472b26a3d2292618c11df7aadc82a8a9.1706026154.jpg"
+                                            alt="Овчарова Ольга Викторовна" loading="lazy"> </a>
+                                    <div class="review__tutor-about">
+                                        <h3 class="review__tutor-name">
+                                            <a href="/view/repetitor-po-obshchestvoznaniyu-ovcharova-olga-viktorovna24212"
+                                                tabindex="-1">
+                                                Овчарова Ольга Викторовна </a>
+                                        </h3>
+                                        <div class="review__tutor-data">
+                                            <a class="tag" href="/repetitors/obshchestvoznanie" tabindex="-1">
+                                                Обществознание </a>
+                                            <a href="/view/repetitor-po-obshchestvoznaniyu-ovcharova-olga-viktorovna24212"
+                                                class="review__tutor-count" tabindex="-1">
+                                                2 отзыва </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__info">
+                                    <div class="rating-stars">
+                                        <div class="rating-stars__back">
+                                            <svg>
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="rating-stars__front" style="width: 100%;">
+                                            <svg class="rating-stars__back">
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review__from">Отзыв от Елена</div>
+                                </div>
+                                <p class="review__text hidden-text">
+                                    5 - отлично </p>
+                            </li>
+                            <li class="review slick-slide" style="width: 335px;" tabindex="-1" data-slick-index="9"
+                                aria-hidden="true">
+                                <div class="review__head">
+                                    <a href="/view/repetitor-nachalnyh-klassov-mohova-irina" class="review__avatar"
+                                        tabindex="-1">
+                                        <img src="https://s.repetitor.ru/thumbnail/photo/250.20ed888f9e41925d1598ba9f917a1f67.1613199162.jpg"
+                                            alt="Мохова Ирина Борисовна" loading="lazy"> </a>
+                                    <div class="review__tutor-about">
+                                        <h3 class="review__tutor-name">
+                                            <a href="/view/repetitor-nachalnyh-klassov-mohova-irina" tabindex="-1">
+                                                Мохова Ирина Борисовна </a>
+                                        </h3>
+                                        <div class="review__tutor-data">
+                                            <a class="tag" href="/repetitors/nachalnaya-shkola" tabindex="-1">
+                                                Начальные классы </a>
+                                            <a href="/view/repetitor-nachalnyh-klassov-mohova-irina"
+                                                class="review__tutor-count" tabindex="-1">
+                                                7 отзывов </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__info">
+                                    <div class="rating-stars">
+                                        <div class="rating-stars__back">
+                                            <svg>
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="rating-stars__front" style="width: 100%;">
+                                            <svg class="rating-stars__back">
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review__from">Отзыв от Татьяна</div>
+                                </div>
+                                <p class="review__text hidden-text">
+                                    Занимаемся с преподавателем русским языком. Сыну (9 лет) очень нравится. Ирина
+                                    Борисовна нашла контакт с ребенком. Задания интересные и разнообразные, помогли
+                                    ребенку стать более уверенным в школе на уроках русского языка. Раньше оценки были
+                                    2-3. Сейчас проскальзывают 4. Быстрых результатов не ... </p>
+                            </li>
+                            <li class="review slick-slide slick-cloned" style="width: 335px;" tabindex="-1"
+                                data-slick-index="10" id="" aria-hidden="true">
+                                <div class="review__head">
+                                    <a href="/view/repetitor-po-fizike-litvinova-elena-aleksandrovna-29282"
+                                        class="review__avatar" tabindex="-1">
+                                        <img src="https://s.repetitor.ru/thumbnail/photo/250.dc9100d35ec24b7ab2f7c6185567b1f0.1724947206.jpg"
+                                            alt="Литвинова Елена Александровна" loading="lazy"> </a>
+                                    <div class="review__tutor-about">
+                                        <h3 class="review__tutor-name">
+                                            <a href="/view/repetitor-po-fizike-litvinova-elena-aleksandrovna-29282"
+                                                tabindex="-1">
+                                                Литвинова Елена Александровна </a>
+                                        </h3>
+                                        <div class="review__tutor-data">
+                                            <a class="tag" href="/repetitors/fizika" tabindex="-1">
+                                                Физика </a>
+                                            <a href="/view/repetitor-po-fizike-litvinova-elena-aleksandrovna-29282"
+                                                class="review__tutor-count" tabindex="-1">
+                                                4 отзыва </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__info">
+                                    <div class="rating-stars">
+                                        <div class="rating-stars__back">
+                                            <svg>
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="rating-stars__front" style="width: 100%;">
+                                            <svg class="rating-stars__back">
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review__from">Отзыв от Юлия</div>
+                                </div>
+                                <p class="review__text hidden-text">
+                                    5-отлично. </p>
+                            </li>
+                            <li class="review slick-slide slick-cloned" style="width: 335px;" tabindex="-1"
+                                data-slick-index="11" id="" aria-hidden="true">
+                                <div class="review__head">
+                                    <a href="/view/repetitor-po-anglijskomu-yazyku-ribeiro-francis22595"
+                                        class="review__avatar" tabindex="-1">
+                                        <img src="https://s.repetitor.ru/thumbnail/photo/250.950833f009abb463cb1bf43338e829d7.1641637809.jpg"
+                                            alt="Ribeiro Francis " loading="lazy"> </a>
+                                    <div class="review__tutor-about">
+                                        <h3 class="review__tutor-name">
+                                            <a href="/view/repetitor-po-anglijskomu-yazyku-ribeiro-francis22595"
+                                                tabindex="-1">
+                                                Ribeiro Francis </a>
+                                        </h3>
+                                        <div class="review__tutor-data">
+                                            <a class="tag" href="/repetitors/anglijskij-yazyk" tabindex="-1">
+                                                Английский язык </a>
+                                            <a href="/view/repetitor-po-anglijskomu-yazyku-ribeiro-francis22595"
+                                                class="review__tutor-count" tabindex="-1">
+                                                1 отзыв </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__info">
+                                    <div class="rating-stars">
+                                        <div class="rating-stars__back">
+                                            <svg>
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="rating-stars__front" style="width: 100%;">
+                                            <svg class="rating-stars__back">
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review__from">Отзыв от Ярослав</div>
+                                </div>
+                                <p class="review__text hidden-text">
+                                    Ребёнку 10 лет, занимается английским со второго класса. Ему очень понравилось,
+                                    занятие прошло в теплой дружественной атмосфере, полное погружение, нет языкового
+                                    барьера. Занятие было интересным) успели поиграть в игры, изучить тему, и на тему
+                                    придумать предложения, применимые в разговорной речи, ... </p>
+                            </li>
+                            <li class="review slick-slide slick-cloned" style="width: 335px;" tabindex="-1"
+                                data-slick-index="12" id="" aria-hidden="true">
+                                <div class="review__head">
+                                    <a href="/view/repetitor-po-biologii-shiryaeva-anna-aleksandrovna-30931"
+                                        class="review__avatar" tabindex="-1">
+                                        <img src="https://s.repetitor.ru/thumbnail/photo/250.0465cf2eec6b9d7bd1ddf984ecf6e5d4.1671978964.jpg"
+                                            alt="Ширяева Анна Александровна" loading="lazy"> </a>
+                                    <div class="review__tutor-about">
+                                        <h3 class="review__tutor-name">
+                                            <a href="/view/repetitor-po-biologii-shiryaeva-anna-aleksandrovna-30931"
+                                                tabindex="-1">
+                                                Ширяева Анна Александровна </a>
+                                        </h3>
+                                        <div class="review__tutor-data">
+                                            <a class="tag" href="/repetitors/biologiya" tabindex="-1">
+                                                Биология </a>
+                                            <a href="/view/repetitor-po-biologii-shiryaeva-anna-aleksandrovna-30931"
+                                                class="review__tutor-count" tabindex="-1">
+                                                10 отзывов </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__info">
+                                    <div class="rating-stars">
+                                        <div class="rating-stars__back">
+                                            <svg>
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="rating-stars__front" style="width: 100%;">
+                                            <svg class="rating-stars__back">
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review__from">Отзыв от Полина</div>
+                                </div>
+                                <p class="review__text hidden-text">
+                                    Дочь очень довольна Анной Александровной. Есть успехи в школе. Это радует.
+                                    Преподаватель нашел общий язык с ребенком. Надеюсь на успешную сдачу ОГЭ. </p>
+                            </li>
+                            <li class="review slick-slide slick-cloned" style="width: 335px;" tabindex="-1"
+                                data-slick-index="13" id="" aria-hidden="true">
+                                <div class="review__head">
+                                    <a href="/view/repetitor-po-anglijskomu-yazyku-poplevina-tatyana-yurevna-30150"
+                                        class="review__avatar" tabindex="-1">
+                                        <img src="https://s.repetitor.ru/thumbnail/photo/250.2129685d66dd4137ff571f01015924c2.1697280008.jpg"
+                                            alt="Поплевина Татьяна Юрьевна" loading="lazy"> </a>
+                                    <div class="review__tutor-about">
+                                        <h3 class="review__tutor-name">
+                                            <a href="/view/repetitor-po-anglijskomu-yazyku-poplevina-tatyana-yurevna-30150"
+                                                tabindex="-1">
+                                                Поплевина Татьяна Юрьевна </a>
+                                        </h3>
+                                        <div class="review__tutor-data">
+                                            <a class="tag" href="/repetitors/anglijskij-yazyk" tabindex="-1">
+                                                Английский язык </a>
+                                            <a href="/view/repetitor-po-anglijskomu-yazyku-poplevina-tatyana-yurevna-30150"
+                                                class="review__tutor-count" tabindex="-1">
+                                                22 отзыва </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__info">
+                                    <div class="rating-stars">
+                                        <div class="rating-stars__back">
+                                            <svg>
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="rating-stars__front" style="width: 100%;">
+                                            <svg class="rating-stars__back">
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review__from">Отзыв от Михаил</div>
+                                </div>
+                                <p class="review__text hidden-text">
+                                    Татьяна Юрьевна готовит сына, 11 класс, к сдаче ЕГЭ по английскому. Выбрали данного
+                                    преподавателя, потому что у неё большой опыт подготовки к экзаменам и
+                                    соответствующая сертификация. Занимаемся уже третий месяц. Татьяна Юрьевна
+                                    определила уровень языка Михаила и адаптирует занятия к его знаниям. ... </p>
+                            </li>
+                            <li class="review slick-slide slick-cloned" style="width: 335px;" tabindex="-1"
+                                data-slick-index="14" id="" aria-hidden="true">
+                                <div class="review__head">
+                                    <a href="/view/repetitor-po-himii-kabluka-oksana-feliksovna" class="review__avatar"
+                                        tabindex="-1">
+                                        <img src="https://s.repetitor.ru/thumbnail/photo/250.2ab993ebc234e36edfffd6b826c09715.1613567644.jpg"
+                                            alt="Каблука Оксана Феликсовна" loading="lazy"> </a>
+                                    <div class="review__tutor-about">
+                                        <h3 class="review__tutor-name">
+                                            <a href="/view/repetitor-po-himii-kabluka-oksana-feliksovna" tabindex="-1">
+                                                Каблука Оксана Феликсовна </a>
+                                        </h3>
+                                        <div class="review__tutor-data">
+                                            <a class="tag" href="/repetitors/himiya" tabindex="-1">
+                                                Химия </a>
+                                            <a href="/view/repetitor-po-himii-kabluka-oksana-feliksovna"
+                                                class="review__tutor-count" tabindex="-1">
+                                                26 отзывов </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__info">
+                                    <div class="rating-stars">
+                                        <div class="rating-stars__back">
+                                            <svg>
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="rating-stars__front" style="width: 100%;">
+                                            <svg class="rating-stars__back">
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review__from">Отзыв от Данил</div>
+                                </div>
+                                <p class="review__text hidden-text">
+                                    Огромное спасибо за занятия с сыном. Наконец то ребёнку стала нравится химия. С
+                                    первого занятия нашли общ ц язык. Сын занимается с удовольствием!!!! В дневнике
+                                    теперь только положительные отметки!!!! </p>
+                            </li>
+                            <li class="review slick-slide slick-cloned" style="width: 335px;" tabindex="-1"
+                                data-slick-index="15" id="" aria-hidden="true">
+                                <div class="review__head">
+                                    <a href="/view/repetitor-po-matematike-mashcheryakova-nina-kuzminichna23877"
+                                        class="review__avatar" tabindex="-1">
+                                        <img src="https://s.repetitor.ru/thumbnail/photo/250.bfe9085e843cf9cd077672fd968dfaa3.1613567597.jpg"
+                                            alt="Мещерякова Нина Кузьминична" loading="lazy"> </a>
+                                    <div class="review__tutor-about">
+                                        <h3 class="review__tutor-name">
+                                            <a href="/view/repetitor-po-matematike-mashcheryakova-nina-kuzminichna23877"
+                                                tabindex="-1">
+                                                Мещерякова Нина Кузьминична </a>
+                                        </h3>
+                                        <div class="review__tutor-data">
+                                            <a class="tag" href="/repetitors/matematika-elementarnaya" tabindex="-1">
+                                                Математика </a>
+                                            <a href="/view/repetitor-po-matematike-mashcheryakova-nina-kuzminichna23877"
+                                                class="review__tutor-count" tabindex="-1">
+                                                3 отзыва </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__info">
+                                    <div class="rating-stars">
+                                        <div class="rating-stars__back">
+                                            <svg>
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="rating-stars__front" style="width: 100%;">
+                                            <svg class="rating-stars__back">
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review__from">Отзыв от Кира</div>
+                                </div>
+                                <p class="review__text hidden-text">
+                                    Замечательный преподаватель. Материал преподносит в понятной для ребёнка форме.
+                                    После нескольких занятий заметен прогресс. Рекомендую данного репетитора! </p>
+                            </li>
+                            <li class="review slick-slide slick-cloned" style="width: 335px;" tabindex="-1"
+                                data-slick-index="16" id="" aria-hidden="true">
+                                <div class="review__head">
+                                    <a href="/view/repetitor-po-fizike-tolstenko-yurij-ivanovich-28622"
+                                        class="review__avatar" tabindex="-1">
+                                        <img src="https://s.repetitor.ru/thumbnail/photo/250.2daa6666517d84e1f47d658b7d842eef.1624959427.jpg"
+                                            alt="Толстенко Юрий Иванович" loading="lazy"> </a>
+                                    <div class="review__tutor-about">
+                                        <h3 class="review__tutor-name">
+                                            <a href="/view/repetitor-po-fizike-tolstenko-yurij-ivanovich-28622"
+                                                tabindex="-1">
+                                                Толстенко Юрий Иванович </a>
+                                        </h3>
+                                        <div class="review__tutor-data">
+                                            <a class="tag" href="/kaliningrad/fizika" tabindex="-1">
+                                                Физика </a>
+                                            <a href="/view/repetitor-po-fizike-tolstenko-yurij-ivanovich-28622"
+                                                class="review__tutor-count" tabindex="-1">
+                                                4 отзыва </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__info">
+                                    <div class="rating-stars">
+                                        <div class="rating-stars__back">
+                                            <svg>
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="rating-stars__front" style="width: 100%;">
+                                            <svg class="rating-stars__back">
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review__from">Отзыв от Евгения</div>
+                                </div>
+                                <p class="review__text hidden-text">
+                                    Толстенко Юрий Иванович занимается с моим сыном уже несколько месяцев. Сын стал
+                                    лучше разбираться в школьной программе, появились хорошие отметки. Юрий Иванович
+                                    внимательный и доброжелательный человек, талантливый преподаватель. Объясняет
+                                    предмет доступным языком. </p>
+                            </li>
+                            <li class="review slick-slide slick-cloned" style="width: 335px;" tabindex="-1"
+                                data-slick-index="17" id="" aria-hidden="true">
+                                <div class="review__head">
+                                    <a href="/view/repetitor-po-geografii-dyakonov-mihail-yurevich"
+                                        class="review__avatar" tabindex="-1">
+                                        <img src="https://s.repetitor.ru/thumbnail/photo/250.232c8c6b478e19c38522c2f00c216277.1611229186.jpg"
+                                            alt="Дьяконов Михаил Юрьевич" loading="lazy"> </a>
+                                    <div class="review__tutor-about">
+                                        <h3 class="review__tutor-name">
+                                            <a href="/view/repetitor-po-geografii-dyakonov-mihail-yurevich"
+                                                tabindex="-1">
+                                                Дьяконов Михаил Юрьевич </a>
+                                        </h3>
+                                        <div class="review__tutor-data">
+                                            <a class="tag" href="/repetitors/geografiya" tabindex="-1">
+                                                География </a>
+                                            <a href="/view/repetitor-po-geografii-dyakonov-mihail-yurevich"
+                                                class="review__tutor-count" tabindex="-1">
+                                                2 отзыва </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__info">
+                                    <div class="rating-stars">
+                                        <div class="rating-stars__back">
+                                            <svg>
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="rating-stars__front" style="width: 40%;">
+                                            <svg class="rating-stars__back">
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review__from">Отзыв от Эльвира</div>
+                                </div>
+                                <p class="review__text hidden-text">
+                                    Преподаватель ориентируется по учебнику. Начал урок глядя в него и выискивая: что
+                                    дальше делать.Не предупредил, что ученику необходимо иметь учебник и атлас.
+                                    Почему-то решил, что они по умолчанию есть. Хотя при предварительном разговоре
+                                    подробно рассказали, что ребёнок учился в другой системе и ... </p>
+                            </li>
+                            <li class="review slick-slide slick-cloned" style="width: 335px;" tabindex="-1"
+                                data-slick-index="18" id="" aria-hidden="true">
+                                <div class="review__head">
+                                    <a href="/view/repetitor-po-obshchestvoznaniyu-ovcharova-olga-viktorovna24212"
+                                        class="review__avatar" tabindex="-1">
+                                        <img src="https://s.repetitor.ru/thumbnail/photo/250.472b26a3d2292618c11df7aadc82a8a9.1706026154.jpg"
+                                            alt="Овчарова Ольга Викторовна" loading="lazy"> </a>
+                                    <div class="review__tutor-about">
+                                        <h3 class="review__tutor-name">
+                                            <a href="/view/repetitor-po-obshchestvoznaniyu-ovcharova-olga-viktorovna24212"
+                                                tabindex="-1">
+                                                Овчарова Ольга Викторовна </a>
+                                        </h3>
+                                        <div class="review__tutor-data">
+                                            <a class="tag" href="/repetitors/obshchestvoznanie" tabindex="-1">
+                                                Обществознание </a>
+                                            <a href="/view/repetitor-po-obshchestvoznaniyu-ovcharova-olga-viktorovna24212"
+                                                class="review__tutor-count" tabindex="-1">
+                                                2 отзыва </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__info">
+                                    <div class="rating-stars">
+                                        <div class="rating-stars__back">
+                                            <svg>
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="rating-stars__front" style="width: 100%;">
+                                            <svg class="rating-stars__back">
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review__from">Отзыв от Елена</div>
+                                </div>
+                                <p class="review__text hidden-text">
+                                    5 - отлично </p>
+                            </li>
+                            <li class="review slick-slide slick-cloned" style="width: 335px;" tabindex="-1"
+                                data-slick-index="19" id="" aria-hidden="true">
+                                <div class="review__head">
+                                    <a href="/view/repetitor-nachalnyh-klassov-mohova-irina" class="review__avatar"
+                                        tabindex="-1">
+                                        <img src="https://s.repetitor.ru/thumbnail/photo/250.20ed888f9e41925d1598ba9f917a1f67.1613199162.jpg"
+                                            alt="Мохова Ирина Борисовна" loading="lazy"> </a>
+                                    <div class="review__tutor-about">
+                                        <h3 class="review__tutor-name">
+                                            <a href="/view/repetitor-nachalnyh-klassov-mohova-irina" tabindex="-1">
+                                                Мохова Ирина Борисовна </a>
+                                        </h3>
+                                        <div class="review__tutor-data">
+                                            <a class="tag" href="/repetitors/nachalnaya-shkola" tabindex="-1">
+                                                Начальные классы </a>
+                                            <a href="/view/repetitor-nachalnyh-klassov-mohova-irina"
+                                                class="review__tutor-count" tabindex="-1">
+                                                7 отзывов </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review__info">
+                                    <div class="rating-stars">
+                                        <div class="rating-stars__back">
+                                            <svg>
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="rating-stars__front" style="width: 100%;">
+                                            <svg class="rating-stars__back">
+                                                <use xlink:href="/v2023/img/sprite.svg#rating"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review__from">Отзыв от Татьяна</div>
+                                </div>
+                                <p class="review__text hidden-text">
+                                    Занимаемся с преподавателем русским языком. Сыну (9 лет) очень нравится. Ирина
+                                    Борисовна нашла контакт с ребенком. Задания интересные и разнообразные, помогли
+                                    ребенку стать более уверенным в школе на уроках русского языка. Раньше оценки были
+                                    2-3. Сейчас проскальзывают 4. Быстрых результатов не ... </p>
+                            </li>
+                        </div>
+                    </div>
+                </ul>
+
+                <div class="reviews__arrows reviews__arrows--mobile">
+                    <button class="slider-arrow slider-arrow--prev slick-arrow" aria-label="Предыдущий слайд" style="">
+                        <svg>
+                            <use xlink:href="/v2023/img/sprite.svg#arrow"></use>
+                        </svg>
+                    </button>
+                    <button class="slider-arrow slider-arrow--next slick-arrow" aria-label="Следующий слайд" style="">
+                        <svg>
+                            <use xlink:href="/v2023/img/sprite.svg#arrow"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section id="cooperation" class="coop">
+            <div class="container">
+                <h2 class="coop__title title">Вы репетитор и хотите сотрудничать?</h2>
+
+                <div class="coop__wrap">
+                    <ul class="coop__steps">
+                        <li class="coop-step">
+                            <h3 class="coop-step__title">Правила</h3>
+                            <div class="coop-step__desc">Изучите правила сотрудничества</div>
+                            <a href="/info/index" class="coop-step__link">Открыть правила</a>
+                        </li>
+                        <li class="coop-step">
+                            <h3 class="coop-step__title">Регистрация</h3>
+                            <div class="coop-step__desc">Создайте профиль на сайте</div>
+                        </li>
+                        <li class="coop-step">
+                            <h3 class="coop-step__title">Анкета</h3>
+                            <div class="coop-step__desc">Создайте анкету</div>
+                        </li>
+                        <li class="coop-step">
+                            <h3 class="coop-step__title">Отклики</h3>
+                            <div class="coop-step__desc">Отвечайте на заявки учеников</div>
+                        </li>
+                        <li class="coop-step">
+                            <h3 class="coop-step__title">Занятия</h3>
+                            <div class="coop-step__desc">Занимайтесь с учениками</div>
+                        </li>
+                    </ul>
+
+                    <a class="coop__register-btn button"
+                        href="https://lk.repetitor.ru/login/signup">Зарегистрироваться</a>
+                </div>
+            </div>
+
+            <div class="coop__circle-first bg-circle bg-circle--blue"></div>
+            <div class="coop__circle-second bg-circle bg-circle--green"></div>
+        </section>
+        <section id="blog" class="blog-short">
+            <div class="container">
+                <div class="blog-short__head">
+                    <h2 class="blog-short__title title">Новое в блоге</h2>
+                    <a class="blog-short__more" href="/blog">Перейти в блог</a>
+                </div>
+                <ul class="blog-short__list">
+                    <li class="blog-short-card">
+                        <div class="blog-short-card__tags">
+                            <a class="tag" href="/blog/category/clientam">Клиентам и ученикам</a>
+                        </div>
+                        <h3 class="blog-short-card__title">Как научить собственного ребенка английскому языку</h3>
+                        <p class="blog-short-card__text">
+                            Несколько видов родителей, желающих обучить ребенка английскому? Какие плюсы и минусы в
+                            каждом типе обучения языку с ранних лет? Какую методику выбрать? </p>
+                        <div class="blog-short-card__date">2 августа 2024</div>
+                        <a class="blog-short-card__more-link"
+                            href="/blog/kak-nauchit-sobstvennogo-rebenka-anglijskomu-yazyku" aria-label="Подробнее"></a>
+                    </li>
+
+                    <li class="blog-short-card">
+                        <div class="blog-short-card__tags">
+                            <a class="tag" href="/blog/category/clientam">Клиентам и ученикам</a>
+                        </div>
+                        <h3 class="blog-short-card__title">Как относиться к практике бесплатного первого урока?</h3>
+                        <p class="blog-short-card__text">
+                            Нужно ли проводить бесплатно первый урок для нового ученика? Какие есть другие методы оценки
+                            знаний и завоевания доверия друг друга? Читайте в статье! </p>
+                        <div class="blog-short-card__date">2 августа 2024</div>
+                        <a class="blog-short-card__more-link"
+                            href="/blog/kak-otnositsya-k-praktike-besplatnogo-pervogo-uroka" aria-label="Подробнее"></a>
+                    </li>
+
+                    <li class="blog-short-card">
+                        <div class="blog-short-card__tags">
+                            <a class="tag" href="/blog/category/clientam">Клиентам и ученикам</a>
+                        </div>
+                        <h3 class="blog-short-card__title">Как создать мотивацию к учебе и к изучению языка в частности
+                        </h3>
+                        <p class="blog-short-card__text">
+                            Как вызвать интерес ученика к учебе и дополнительным занятиям с репетитором или
+                            самостоятельно дома? Читайте в нашей статье! </p>
+                        <div class="blog-short-card__date">2 августа 2024</div>
+                        <a class="blog-short-card__more-link"
+                            href="/blog/kak-sozdat-motivaciyu-k-uchebe-i-k-izucheniyu-yazyka-v-chastnosti"
+                            aria-label="Подробнее"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="blog-short__circle-first bg-circle bg-circle--green"></div>
+            <div class="blog-short__circle-second bg-circle bg-circle--blue"></div>
+        </section>
+        <footer id="footer" class="footer">
+            <div class="container">
+                <div class="footer__main">
+                    <div class="footer__info">
+                        <a href="/" class="footer__logo">
+                            <img src="/v2023/img/logo-footer.png" alt="Repetitor.ru">
+                        </a>
+                        <form action="/search" class="footer__search search">
+                            <input type="search" name="Search[text]" placeholder="Поиск репетитора по ФИО">
+                            <button class="search__btn">
+                                <svg>
+                                    <use xlink:href="/v2023/img/sprite.svg#search"></use>
+                                </svg>
+                            </button>
+                        </form>
+                        <div class="footer__copy">
+                            <p>© 2017-2024. Центр образовательных компьютерных технологий «РЕПЕТИТОР МультиМедиа».</p>
+                            <p>
+                                OГРН 1037739916609 от 20.10.2003
+                            </p>
+                        </div>
+                    </div>
+                    <div class="application">
+                        <h3 class="application__title">Приложение для репетиторов</h3>
+                        <ul class="application__list">
+                            <li>
+                                <a
+                                    href="https://apps.apple.com/ru/app/repetitor-ru-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B5%D0%BF%D0%B5%D1%82%D0%B8%D1%82%D0%BE%D1%80%D0%BE%D0%B2/id1625876943">
+                                    <img src="/v2023/img/appstore.svg" alt="appstore">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://play.google.com/store/apps/details?id=com.repetitorru">
+                                    <img src="/v2023/img/googleplay.svg" alt="googleplay">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer__nav">
+                    <div class="footer__nav-item">
+                        <h3 class="footer__nav-title">Ученикам</h3>
+                        <ul class="footer__nav-list">
+                            <li><a href="/wizard">Подобрать репетитора</a></li>
+                            <li><a href="/about">О нас</a></li>
+                            <li><a href="/blog">Блог</a></li>
+                            <li><a href="/partner">Партнерская программа</a></li>
+                            <li><a href="/map">Карта сайта</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__nav-item">
+                        <h3 class="footer__nav-title">Репетиторам</h3>
+                        <ul class="footer__nav-list">
+                            <li><a href="https://lk.repetitor.ru/login/signup">Зарегистрироваться</a></li>
+                            <li><a href="https://howto.repetitor.ru/">Условия сотрудничества</a></li>
+                            <li><a href="/info/mailing">Рассылка</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__nav-item">
+                        <h3 class="footer__nav-title">Техподдержка</h3>
+                        <ul class="footer__nav-list">
+                            <li class="mail"><a href="mailto:support@repetitor.ru">support@repetitor.ru</a></li>
+                            <li><a href="tel:+74957400791">+7 (495) 740-07-91</a></li>
+                            <li>Москва, ул. Золотая, д. 11</li>
+                        </ul>
+                    </div>
+                    <div class="footer__nav-item">
+                        <h3 class="footer__nav-title">Мы в соц. сетях</h3>
+                        <ul class="socials">
+                            <li class="socials__item">
+                                <a href="https://dzen.ru/id/5e42a2655217d53be7c21ef4">
+                                    <svg>
+                                        <use xlink:href="/v2023/img/sprite.svg#social-zen"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="socials__item">
+                                <a href="https://vk.com/repetitortochkaru">
+                                    <svg>
+                                        <use xlink:href="/v2023/img/sprite.svg#social-vk"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="socials__item">
+                                <a href="https://t.me/repetitordotru">
+                                    <svg>
+                                        <use xlink:href="/v2023/img/sprite.svg#social-tg"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="socials__item">
+                                <a href="https://www.youtube.com/@RepetitorRu-video">
+                                    <svg>
+                                        <use xlink:href="/v2023/img/sprite.svg#social-youtube"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <div class="modal" id="modal-menu">
+        <div class="modal__wrapper modal__wrapper--right">
+            <div class="modal__container modal__container--fullheight">
+                <button class="modal__close-btn" data-modal-close="" aria-label="Close modal"></button>
+                <div class="menu">
+                    <div class="custom-select menu__city">
+                        <select-city data-v-app="">
+                            <div data-v-15f970bb="" class="city-selector">
+                                <div data-v-8ce3e5e3="" data-v-15f970bb="" dir="auto" class="vue-select">
+                                    <div data-v-8ce3e5e3="" class="control">
+                                        <div data-v-8ce3e5e3="" class="value-container" role="combobox"
+                                            aria-expanded="false" aria-describedby="Выберите город"
+                                            aria-description="Выберите город" aria-label="Москва">
+                                            <div data-v-8ce3e5e3="" class="single-value">Москва</div><!----><input
+                                                data-v-8ce3e5e3="" class="search-input" type="text"
+                                                aria-autocomplete="list" autocapitalize="none" autocomplete="off"
+                                                autocorrect="off" spellcheck="false" tabindex="0" placeholder="">
+                                        </div>
+                                        <div data-v-8ce3e5e3="" class="indicators-container"><!----><button
+                                                data-v-8ce3e5e3="" type="button" class="dropdown-icon"
+                                                tabindex="-1"><svg data-v-8ce3e5e3="" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </div><!---->
+                                </div>
+                            </div>
+                        </select-city>
+                    </div><a class="button button--transparent menu__login-btn" href="https://lk.repetitor.ru"
+                        aria-label="Open login modal">Кардашин М.</a>
+                    <ul class="menu__links">
+                        <li>
+                            <a href="/blog">Блог</a>
+                        </li>
+                        <li>
+                            <a href="/repetitors/stat-repetitorom">Стать репетитором</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-filter">
+        <div class="modal__wrapper modal__wrapper--left">
+            <div class="modal__container modal__container--fullheight">
+                <button class="modal__close-btn" data-modal-close="" aria-label="Close modal"></button>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script>
+    <script src="/js/cityselector.js?v=1726583467"></script>
+    <script>jQuery(function ($) {
+            jQuery('#w0').yiiActiveForm([], []);
+        });</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js?_v=20240202145317"
+        type="text/javascript" defer=""></script>
+    <script src="/v2023/js/main.min.js?_v=20240217143917" defer=""></script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function () {
+                try {
+                    w.yaCounter42155404 = new Ya.Metrika({
+                        id: 42155404,
+                        clickmap: true,
+                        trackLinks: true,
+                        accurateTrackBounce: true,
+                        webvisor: true
+                    });
+                } catch (e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                x = "https://mc.yandex.ru/metrika/watch.js",
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            for (var i = 0; i < document.scripts.length; i++) {
+                if (document.scripts[i].src === x) { return; }
+            }
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = x;
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/42155404" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+
+
+
+</body>

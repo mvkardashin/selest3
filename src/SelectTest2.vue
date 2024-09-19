@@ -1,26 +1,29 @@
 <template>
   <div class="city-selector">
-    <VueSelect v-model="selectedCity"  :options="[
+    <VueSelect v-model="selectedCity" :options="[
 
-      { label: 'repetitors', value: 'repetitors',},
-      { label: 'peterburg', value: 'peterburg',},
-      { label: 'novosibirsk', value: 'novosibirsk',  },
+      { label: 'repetitors', value: 'repetitors', },
+      { label: 'peterburg', value: 'peterburg', },
+      { label: 'novosibirsk', value: 'novosibirsk', },
       { label: 'ekaterinburg', value: 'ekaterinburg', },
       { label: 'kazan', value: 'kazan', code: 'kazan', },
       { label: 'nizhnii-novgorod', value: 'nizhnii-novgorod', },
       { label: 'samara', value: 'samara', },
-      { label: 'chelyabinsk', value: 'chelyabinsk',  },
-      { label: 'omsk', value: 'omsk',  },
-      { label: 'rostov-na-donu', value: 'rostov-na-donu',  },
-      { label: 'ufa', value: 'ufa',  }
+      { label: 'chelyabinsk', value: 'chelyabinsk', },
+      { label: 'omsk', value: 'omsk', },
+      { label: 'rostov-na-donu', value: 'rostov-na-donu', },
+      { label: 'ufa', value: 'ufa', }
     ]" @option-selected="onSelectCity" :isClearable="false" placeholder="Выберите город">
     </VueSelect>
+    <input ref="search" type="text" v-model="inputvalue">
+    {{ inputvalue }}
+    {{ searchval }}
   </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue';
-
+import { defineComponent, ref } from 'vue';
+const search = ref("");
 import VueSelect from "vue3-select-component";
 export default defineComponent({
   props:
@@ -31,6 +34,7 @@ export default defineComponent({
   components: { VueSelect },
   data() {
     return {
+      inputvalue: '',
       selectedCity: null,
       cities: [
 
@@ -49,7 +53,9 @@ export default defineComponent({
     }
   },
   computed: {
-
+    searchval() {
+      return search.value;
+    }
   },
   methods: {
     onSelectCity(option) {

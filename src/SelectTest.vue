@@ -1,6 +1,19 @@
 <template>
   <div class="city-selector">
-    <VueSelect v-model="selectedCity" @search="onFilter" :options="filteredCities"
+    <VueSelect v-model="selectedCity"  :options="[
+
+{ label: 'Москва', value: 'repetitors', code: 'repetitors', id: 1, region: 'Московская область' },
+{ label: 'Санкт-Петербург', value: 'peterburg', code: 'peterburg', id: 2, region: 'Ленинградская область ' },
+{ label: 'Новосибирск', value: 'novosibirsk', code: 'novosibirsk', id: 3, region: 'Новосибирская область' },
+{ label: 'Екатеринбург', value: 'ekaterinburg', code: 'ekaterinburg', id: 4, region: 'Свердловская область' },
+{ label: 'Казань', value: 'kazan', code: 'kazan', id: 5, region: 'республика Татарстан' },
+{ label: 'Нижний Новгород', value: 'nizhnii-novgorod', code: 'nizhnii-novgorod', id: 6, region: 'Нижегородская область' },
+{ label: 'Самара', value: 'samara', code: 'samara', id: 7, region: 'Самарская область' },
+{ label: 'Челябинск', value: 'chelyabinsk', code: 'chelyabinsk', id: 8, region: 'Челябинская область' },
+{ label: 'Омск', value: 'omsk', code: 'omsk', id: 9, region: 'Омская область' },
+{ label: 'Ростов-на-Дону', value: 'rostov-na-donu', code: 'rostov-na-donu', id: 10, region: 'Ростовская область' },
+{ label: 'Уфа', value: 'ufa', code: 'ufa', id: 11, region: 'республика Башкортостан' }
+]"
       @option-selected="onSelectCity" :isClearable="false" placeholder="Выберите город">
       <template #no-options>
         Не найдено

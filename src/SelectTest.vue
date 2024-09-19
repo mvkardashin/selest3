@@ -58,6 +58,7 @@ export default defineComponent({
 
     },
     onFilter(value) {
+      alert(value)
       this.filteredCities = this.cities.filter((element) => { return element.label.toLowerCase().includes(value.toLowerCase()) })
     }
   },

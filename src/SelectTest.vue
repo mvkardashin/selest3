@@ -1,7 +1,7 @@
 <template>
   <div class="city-selector">
-    <VueSelect v-model="selectedCity" :options="cities" @option-selected="onSelectCity" :isClearable="false"
-      placeholder="Выберите город">
+    <VueSelect v-model="selectedCity" @search="(value) => console.log(value)" :options="filteredCities"
+      @option-selected="onSelectCity" :isClearable="false" placeholder="Выберите город">
       <template #no-options>
         Не найдено
       </template>
@@ -31,29 +31,29 @@ export default defineComponent({
       selectedCity: null,
       cities: [
 
-{label: 'Москва', value: 'repetitors', code: 'repetitors', id: 1, region: 'Московская область'}
-,
-{label: 'Санкт-Петербург', value: 'peterburg', code: 'peterburg', id: 2, region: 'Ленинградская область '}
-,
-{label: 'Новосибирск', value: 'novosibirsk', code: 'novosibirsk', id: 3, region: '‎Новосибирская область'}
-,
-{label: 'Екатеринбург', value: 'ekaterinburg', code: 'ekaterinburg', id: 4, region: 'Свердловская область'}
-,
-{label: 'Казань', value: 'kazan', code: 'kazan', id: 5, region: 'республика Татарстан'}
-,
-{label: 'Нижний Новгород', value: 'nizhnii-novgorod', code: 'nizhnii-novgorod', id: 6, region: 'Нижегородская область'}
-,
-{label: 'Самара', value: 'samara', code: 'samara', id: 7, region: 'Самарская область'}
-,
-{label: 'Челябинск', value: 'chelyabinsk', code: 'chelyabinsk', id: 8, region: 'Челябинская область'}
-,
-{label: 'Омск', value: 'omsk', code: 'omsk', id: 9, region: '‎Омская область'}
-, 
-{label: 'Ростов-на-Дону', value: 'rostov-na-donu', code: 'rostov-na-donu', id: 10, region: 'Ростовская область'}
-,
-{label: 'Уфа', value: 'ufa', code: 'ufa', id: 11, region: 'республика Башкортостан'}
+        { label: 'Москва', value: 'repetitors', code: 'repetitors', id: 1, region: 'Московская область' }
+        ,
+        { label: 'Санкт-Петербург', value: 'peterburg', code: 'peterburg', id: 2, region: 'Ленинградская область ' }
+        ,
+        { label: 'Новосибирск', value: 'novosibirsk', code: 'novosibirsk', id: 3, region: '‎Новосибирская область' }
+        ,
+        { label: 'Екатеринбург', value: 'ekaterinburg', code: 'ekaterinburg', id: 4, region: 'Свердловская область' }
+        ,
+        { label: 'Казань', value: 'kazan', code: 'kazan', id: 5, region: 'республика Татарстан' }
+        ,
+        { label: 'Нижний Новгород', value: 'nizhnii-novgorod', code: 'nizhnii-novgorod', id: 6, region: 'Нижегородская область' }
+        ,
+        { label: 'Самара', value: 'samara', code: 'samara', id: 7, region: 'Самарская область' }
+        ,
+        { label: 'Челябинск', value: 'chelyabinsk', code: 'chelyabinsk', id: 8, region: 'Челябинская область' }
+        ,
+        { label: 'Омск', value: 'omsk', code: 'omsk', id: 9, region: '‎Омская область' }
+        ,
+        { label: 'Ростов-на-Дону', value: 'rostov-na-donu', code: 'rostov-na-donu', id: 10, region: 'Ростовская область' }
+        ,
+        { label: 'Уфа', value: 'ufa', code: 'ufa', id: 11, region: 'республика Башкортостан' }
 
-      ]
+      ], filteredCities: []
     }
   },
   computed: {
@@ -68,33 +68,37 @@ export default defineComponent({
       window.location = newPath
 
     },
+    onFilter(value) {
+      this.filteredCities = this.cities.filter((element) => { return element.label.toLowerCase().includes(value.toLowerCase()) })
+    }
   },
   mounted() {
-//     const citiesUri = 'https://repetitor.ru/site/region'
+    this.filteredCities = this.cities;
+    //     const citiesUri = 'https://repetitor.ru/site/region'
 
-//     fetch(citiesUri).then(response => response.json())
-//       .then(data => {
-//         let res = data.map((e) => ({ 'label': e.title, "value": e.code, "code": e.code, "id": e.id, "region": e.region }));
-//         console.log(res)
-//         this.cities = res.sort((a, b) => a.label - b.label);
-//       });
-//     let location = window.location.pathname.split('/');
-// console.log(this.cities)
-//     // let arr = location.split('/')
-//     if (location.length > 1) {
+    //     fetch(citiesUri).then(response => response.json())
+    //       .then(data => {
+    //         let res = data.map((e) => ({ 'label': e.title, "value": e.code, "code": e.code, "id": e.id, "region": e.region }));
+    //         console.log(res)
+    //         this.cities = res.sort((a, b) => a.label - b.label);
+    //       });
+    //     let location = window.location.pathname.split('/');
+    // console.log(this.cities)
+    //     // let arr = location.split('/')
+    //     if (location.length > 1) {
 
-//       let initCity = location[1]
-//       if (initCity == '') {
-//         this.selectedCity = 'repetitors'
-//       } else {
-//         this.selectedCity = initCity;
-//       }
+    //       let initCity = location[1]
+    //       if (initCity == '') {
+    //         this.selectedCity = 'repetitors'
+    //       } else {
+    //         this.selectedCity = initCity;
+    //       }
 
-//     } else {
-//       this.selectedCity = 'repetitors'
-//     }
+    //     } else {
+    //       this.selectedCity = 'repetitors'
+    //     }
 
-// console.log(this.cities)
+    // console.log(this.cities)
   }
 
 })
@@ -104,8 +108,7 @@ export default defineComponent({
 .city-selector {
   min-width: 200px;
   --vs-border: 0px solid #ffffff;
-  --vs-input-placeholder-color:#aaa
-
+  --vs-input-placeholder-color: #aaa
 }
 
 /* @property --vs-border {

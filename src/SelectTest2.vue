@@ -16,7 +16,7 @@
     ]" @option-selected="onSelectCity" :isClearable="false" placeholder="Выберите город">
     </VueSelect>
     <input ref="search" type="text" v-model="inputvalue">
-    {{ inputvalue }}
+    {{ this.inputvalue }}
     {{ searchval }}
   </div>
 </template>

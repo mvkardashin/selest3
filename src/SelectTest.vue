@@ -43,17 +43,17 @@ export default defineComponent({
       selectedCity: null,
       cities: [
 
-        { label: 'Москва', value: 'repetitors', code: 'repetitors', id: 1, region: 'Московская область' },
-        { label: 'Санкт-Петербург', value: 'peterburg', code: 'peterburg', id: 2, region: 'Ленинградская область ' },
-        { label: 'Новосибирск', value: 'novosibirsk', code: 'novosibirsk', id: 3, region: 'Новосибирская область' },
-        { label: 'Екатеринбург', value: 'ekaterinburg', code: 'ekaterinburg', id: 4, region: 'Свердловская область' },
-        { label: 'Казань', value: 'kazan', code: 'kazan', id: 5, region: 'республика Татарстан' },
-        { label: 'Нижний Новгород', value: 'nizhnii-novgorod', code: 'nizhnii-novgorod', id: 6, region: 'Нижегородская область' },
-        { label: 'Самара', value: 'samara', code: 'samara', id: 7, region: 'Самарская область' },
-        { label: 'Челябинск', value: 'chelyabinsk', code: 'chelyabinsk', id: 8, region: 'Челябинская область' },
-        { label: 'Омск', value: 'omsk', code: 'omsk', id: 9, region: 'Омская область' },
-        { label: 'Ростов-на-Дону', value: 'rostov-na-donu', code: 'rostov-na-donu', id: 10, region: 'Ростовская область' },
-        { label: 'Уфа', value: 'ufa', code: 'ufa', id: 11, region: 'республика Башкортостан' }
+        { label: 'repetitors', value: 'repetitors', code: 'repetitors', id: 1, region: 'Московская область' },
+        { label: 'peterburg', value: 'peterburg', code: 'peterburg', id: 2, region: 'Ленинградская область ' },
+        { label: 'novosibirsk', value: 'novosibirsk', code: 'novosibirsk', id: 3, region: 'Новосибирская область' },
+        { label: 'ekaterinburg', value: 'ekaterinburg', code: 'ekaterinburg', id: 4, region: 'Свердловская область' },
+        { label: 'kazan', value: 'kazan', code: 'kazan', id: 5, region: 'республика Татарстан' },
+        { label: 'nizhnii-novgorod', value: 'nizhnii-novgorod', code: 'nizhnii-novgorod', id: 6, region: 'Нижегородская область' },
+        { label: 'samara', value: 'samara', code: 'samara', id: 7, region: 'Самарская область' },
+        { label: 'chelyabinsk', value: 'chelyabinsk', code: 'chelyabinsk', id: 8, region: 'Челябинская область' },
+        { label: 'omsk', value: 'omsk', code: 'omsk', id: 9, region: 'Омская область' },
+        { label: 'rostov-na-donu', value: 'rostov-na-donu', code: 'rostov-na-donu', id: 10, region: 'Ростовская область' },
+        { label: 'ufa', value: 'ufa', code: 'ufa', id: 11, region: 'республика Башкортостан' }
       ], filteredCities: []
     }
   },

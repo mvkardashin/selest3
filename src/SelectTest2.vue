@@ -15,8 +15,8 @@
       { label: 'ufa', value: 'ufa', }
     ]" @option-selected="onSelectCity" :isClearable="false" placeholder="Выберите город">
     </VueSelect>
-    <input ref="search" type="text" v-model="inputvalue">
-    {{ this.inputvalue }}
+    <input ref="search" type="text" v-model="inputvalue"> f
+    {{ this.inputvalue }}b
     {{ searchval }}
   </div>
 </template>

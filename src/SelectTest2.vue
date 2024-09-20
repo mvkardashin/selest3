@@ -15,9 +15,11 @@
       { label: 'ufa', value: 'ufa', }
     ]" @option-selected="onSelectCity" :isClearable="false" placeholder="Выберите город">
     </VueSelect>
-    <input ref="search" type="text" v-model="inputvalue"> f
+    <input ref="search" type="text" v-model="inputvalue">
+    <input :value="text" @input="event => this.text = event.target.value">
     {{ this.inputvalue }}b
     {{ searchval }}
+    {{ text }}
   </div>
 </template>
 
@@ -34,6 +36,7 @@ export default defineComponent({
   components: { VueSelect },
   data() {
     return {
+      text:'',
       inputvalue: '',
       selectedCity: null,
       cities: [

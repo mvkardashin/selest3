@@ -39,7 +39,7 @@ export default defineComponent({
         },
     },
     mounted() {
-        const subjectsUri = 'https://repetitor.ru/site/subject';
+        const subjectsUri = '/site/subject';
         fetch(subjectsUri).then(response => response.json())
             .then(data => {
                 let res = data.map((e) => ({ 'label': e.title, "value": e.id, "code": e.code, "parent_id": e.parent_id }));

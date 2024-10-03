@@ -174,8 +174,8 @@ export default defineComponent({
     }
   },
   mounted() {
-    const subjectsUri = 'https://repetitor.ru/site/subject';
-    const geoUri = 'https://repetitor.ru/site/geo';
+    const subjectsUri = '/site/subject';
+    const geoUri = '/site/geo';
     fetch(subjectsUri).then(response => response.json())
       .then(data => {
         let res = data.map((e) => ({ 'label': e.title, "value": e.id, "code": e.code, "parent_id": e.parent_id }));
@@ -202,7 +202,7 @@ export default defineComponent({
         }
       });
 
-    if (this.initialPrice != null && this.initialPrice!="min=&max=") {
+    if (this.initialPrice != null && this.initialPrice!="min=&max=" && this.initialPrice!="min=0&max=0") {
       this.selectedPrice = this.initialPrice
     }
     if (this.initialAge != null && this.initialAge!=0) {

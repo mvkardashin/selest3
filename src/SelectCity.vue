@@ -36,40 +36,19 @@ export default defineComponent({
 
   },
   methods: {
-    onSelectCity(option) {
-      let location = window.location.pathname
-      let arr = location.split('/')
-      arr[1] = option.code
-      let newPath = arr.join('/')
-      window.location = newPath
+    onSelectCity(option) {     
+      window.location = '/'+option.code
 
     },
   },
   mounted() {
-    const citiesUri = 'https://repetitor.ru/site/region'
-
+    const citiesUri = '/site/region'
     fetch(citiesUri).then(response => response.json())
       .then(data => {
-        let res = data.map((e) => ({ 'label': e.title, "value": e.code, "code": e.code, "id": e.id, "region": e.region }));
+        let res = data.map((e) => ({ 'label': e.title, "value": e.id, "code": e.code, "id": e.id, "region": e.region }));
         this.cities = res.sort((a, b) => a.label - b.label);
       });
-    let location = window.location.pathname.split('/');
-
-    // let arr = location.split('/')
-    if (location.length > 1) {
-
-      let initCity = location[1]
-      if (initCity == '') {
-        this.selectedCity = 'repetitors'
-      } else {
-        this.selectedCity = initCity;
-      }
-
-    } else {
-      this.selectedCity = 'repetitors'
-    }
-
-
+    this.selectedCity=this.initialCity;
   }
 
 })
@@ -82,26 +61,6 @@ export default defineComponent({
   --vs-input-placeholder-color:#aaa
 
 }
-
-/* @property --vs-border {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: white;
-
-}
-
-@property --vs-input-placeholder-color {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #aaa;
-
-} */
-
-/* :root {
-  --vs-border: 0px solid #e4e4e7
-} */
-
-;
 
 :deep(.control) {
   border: 5px;

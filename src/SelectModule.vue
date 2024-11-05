@@ -33,8 +33,8 @@
         </template>
         <template #option="{ option }">
           <div>
-            <div>{{isMetro(option) }}{{isCity(option) }}{{isDistrict(option) }}{{ option.label }}</div>
-            <div style="color: gray;font-size: 12px;">{{metroLine(option)}}</div>
+            <div>{{ isMetro(option) }}{{ isCity(option) }}{{ isDistrict(option) }}{{ option.label }}</div>
+            <div style="color: gray;font-size: 12px;">{{ metroLine(option) }}</div>
           </div>
         </template>
       </VueSelect>
@@ -126,17 +126,24 @@ export default defineComponent({
       return this.selectedSubject != null ? "/" + this.subjects.find((subject) => { return subject.value == this.selectedSubject }).code : ''
     },
     selectedCategoryCode() {
-      return this.selectedCategory != null &&this.selectedCategory !=0 ? "/" + this.filteredCategories.find((subject) => { return subject.value == this.selectedCategory }).code : ''
+      return this.selectedCategory != null && this.selectedCategory != 0 ? "/" + this.filteredCategories.find((subject) => { return subject.value == this.selectedCategory }).code : ''
     },
+    selectedGeoCode() {
+      return this.selectedGeo != null ? '/' + this.selectedGeo : ''
+    },
+    selectedOnlineCode() {
+      return this.isOnline != null && this.isOnline==true ? '/online'  : ''
+    },
+
     fullUri() {
-      return '/' + (this.cityCode != null ? this.cityCode : '') + this.selectedSubjectCode + this.selectedCategoryCode + this.queryPart;
+      return '/' + (this.cityCode != null ? this.cityCode : '') + this.selectedSubjectCode + this.selectedCategoryCode + this.selectedGeoCode +this.selectedOnlineCode + this.queryPart;
     },
     queryPart() {
       let queries = [];
-      if (this.isOnline!=null && this.isOnline==true) { queries.push("place=3") }
-      if (this.selectedGeo!=null) { queries.push(this.selectedGeo) }
-      if (this.selectedAge!=null) { queries.push(this.selectedAge) }
-      if (this.selectedPrice!=null) { queries.push(this.selectedPrice) }
+      // if (this.isOnline != null && this.isOnline == true) { queries.push("place=3") }
+      // if (this.selectedGeo!=null) { queries.push(this.selectedGeo) }
+      if (this.selectedAge != null) { queries.push(this.selectedAge) }
+      if (this.selectedPrice != null) { queries.push(this.selectedPrice) }
       return queries.length != 0 ? "?" + queries.join("&") : ''
     }
   },
@@ -153,18 +160,18 @@ export default defineComponent({
         return ''
       }
     },
-    metroLine(option){
-      if (option.type == "metro"  &&option.line!=null) { return option.line } else {
+    metroLine(option) {
+      if (option.type == "metro" && option.line != null) { return option.line } else {
         return ''
       }
     },
     isCity(option) {
-      if (option.type == "area"  &&option.is_town==1) { return 'г. ' } else {
+      if (option.type == "area" && option.is_town == 1) { return 'г. ' } else {
         return ''
       }
     },
     isDistrict(option) {
-      if (option.type == "area"  &&option.is_district==1) { return 'р-н. ' } else {
+      if (option.type == "area" && option.is_district == 1) { return 'р-н. ' } else {
         return ''
       }
     },
@@ -193,22 +200,25 @@ export default defineComponent({
 
     fetch(geoUri + '?id=' + this.city).then(response => response.json())
       .then(data => {
-        let res = data.map((e) => ({ 'label': e.title, "type": e.type, "value": e.type + "=" + e.id, "city": e.location_id, 'line': e.line, 'is_town': e.is_town, 'is_district': e.is_district }));
+       
+        let res = data.map((e) => ({ 'label': e.title, "type": e.type, "id": e.id, "value": e.type == 'area' ? 'a'+ "-" + e.code : 'm' + "-" + e.code, "city": e.location_id, 'line': e.line, 'is_town': e.is_town, 'is_district': e.is_district }));
         this.allgeo = res;
-        
+       
         this.geo = this.allgeo.sort((a, b) => a.label < b.label ? -1 : (a.label > b.label ? 1 : 0));
         if (this.initialGeoId != null && this.initialGeoType && !this.isOnline) {
-          this.selectedGeo = this.initialGeoType + "=" + this.initialGeoId;
+          let initialGeoVal = this.geo.find((e) => e.type == this.initialGeoType && e.id==this.initialGeoId);
+          this.selectedGeo=initialGeoVal.value;
+         
         }
       });
 
-    if (this.initialPrice != null && this.initialPrice!="min=&max=" && this.initialPrice!="min=0&max=0") {
+    if (this.initialPrice != null && this.initialPrice != "min=&max=" && this.initialPrice != "min=0&max=0") {
       this.selectedPrice = this.initialPrice
     }
-    if (this.initialAge != null && this.initialAge!=0) {
-      this.selectedAge = "age="+this.initialAge
+    if (this.initialAge != null && this.initialAge != 0) {
+      this.selectedAge = "age=" + this.initialAge
     }
-    if (this.initialOnline!=null &&this.initialOnline==true) {
+    if (this.initialOnline != null && this.initialOnline == true) {
       this.isOnline = true;
       this.selectedGeo = null;
     }

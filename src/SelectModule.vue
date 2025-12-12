@@ -24,7 +24,7 @@
     <div class="online_row filter__type">
       <p style="margin: 0px; ">Онлайн</p>
       <input style="margin-top: auto ;margin-bottom: auto;margin-left: 10px;" type="checkbox" v-model="isOnline"
-        @input="onClickOnline">
+        @change="onChangeOnline">
     </div>
     <div class="filter__item custom_select">
       <VueSelect v-model="selectedGeo" :options="geo" :placeholder="geoPlaceholder" :isDisabled="isGeoDisabled">
@@ -104,14 +104,18 @@ export default defineComponent({
       selectedCategory: null,
       selectedAge: null,
       selectedPrice: null,
-      isOnline: null
+      isOnline: false
     }
   },
   computed: {
     isCategoryEmpty() {
       return this.filteredCategories.length == 0;
     },
-
+    basePath() {
+      return this.isOnline
+        ? '/repetitors'
+        : '/' + (this.cityCode ?? '');
+    },
 
     isCategoryEmptyText() {
       return this.filteredCategories.length == 0 ? 'Нет категорий предмета' : 'Не выбрано';
@@ -123,20 +127,24 @@ export default defineComponent({
       return this.isOnline ? "Недоступно онлайн" : "Не выбрано"
     },
     selectedSubjectCode() {
-      return this.selectedSubject != null ? "/" + this.subjects.find((subject) => { return subject.value == this.selectedSubject }).code : ''
+      const s = this.subjects.find(x => x.value === this.selectedSubject);
+      return s?.code ? `/${s.code}` : '';
     },
     selectedCategoryCode() {
-      return this.selectedCategory != null && this.selectedCategory != 0 ? "/" + this.filteredCategories.find((subject) => { return subject.value == this.selectedCategory }).code : ''
+      if (!this.selectedCategory || this.selectedCategory === 0) return '';
+      const c = this.filteredCategories.find(x => x.value === this.selectedCategory);
+      return c?.code ? `/${c.code}` : '';
     },
     selectedGeoCode() {
-      return this.selectedGeo != null ? '/' + this.selectedGeo : ''
+      if (this.isOnline) return '';
+      return this.selectedGeo ? '/' + this.selectedGeo : '';
     },
     selectedOnlineCode() {
-      return this.isOnline != null && this.isOnline==true ? '/online'  : ''
+      return this.isOnline == true ? '/online' : ''
     },
 
     fullUri() {
-      return '/' + (this.cityCode != null ? this.cityCode : '') + this.selectedSubjectCode + this.selectedCategoryCode + this.selectedGeoCode +this.selectedOnlineCode + this.queryPart;
+      return this.basePath + this.selectedSubjectCode + this.selectedCategoryCode + this.selectedGeoCode + this.selectedOnlineCode + this.queryPart;
     },
     queryPart() {
       let queries = [];
@@ -175,40 +183,47 @@ export default defineComponent({
         return ''
       }
     },
-    onClickOnline() {
-      this.selectedGeo = null;
-      this.isOnline = !this.isOnline;
+    onChangeOnline() {
+      if (this.isOnline == true) {
+        this.selectedGeo = null;
+      }
+
     }
   },
   mounted() {
+    this.isOnline = !!this.initialOnline;
+    if (this.isOnline) this.selectedGeo = null;
     const subjectsUri = '/site/subject';
     const geoUri = '/site/geo';
-    fetch(subjectsUri).then(response => response.json())
-      .then(data => {
-        let res = data.map((e) => ({ 'label': e.title, "value": e.id, "code": e.code, "parent_id": e.parent_id }));
+    fetch(subjectsUri).then(r => r.json()).then(data => {
+      const res = data.map(e => ({ label: e.title, value: e.id, code: e.code, parent_id: e.parent_id }));
 
-        this.allsubjects = res.sort((a, b) => a.label - b.label);
-        this.subjects = this.allsubjects.filter((subject) => { return subject.parent_id == null }).sort((a, b) => a.label < b.label ? -1 : (a.label > b.label ? 1 : 0));
-        if (this.initialSubject != null) {
-          this.selectedSubject = this.initialSubject;
-        }
-        this.filteredCategories = this.allsubjects.filter((subject) => { return subject.parent_id == this.initialSubject });
-        if (this.initialCategory != null) {
-          this.selectedCategory = this.initialCategory;
-        }
-      });
+      this.allsubjects = res.sort((a, b) => a.label.localeCompare(b.label, 'ru'));
+
+      this.subjects = this.allsubjects
+        .filter(s => s.parent_id == null)
+        .sort((a, b) => a.label.localeCompare(b.label, 'ru'));
+
+      if (this.initialSubject != null) this.selectedSubject = this.initialSubject;
+
+      this.filteredCategories = this.allsubjects
+        .filter(s => s.parent_id == this.selectedSubject);
+
+      if (this.initialCategory != null) this.selectedCategory = this.initialCategory;
+    });
+
 
     fetch(geoUri + '?id=' + this.city).then(response => response.json())
       .then(data => {
-       
-        let res = data.map((e) => ({ 'label': e.title, "type": e.type, "id": e.id, "value": e.type == 'area' ? 'a'+ "-" + e.code : 'm' + "-" + e.code, "city": e.location_id, 'line': e.line, 'is_town': e.is_town, 'is_district': e.is_district }));
+
+        let res = data.map((e) => ({ 'label': e.title, "type": e.type, "id": e.id, "value": e.type == 'area' ? 'a' + "-" + e.code : 'm' + "-" + e.code, "city": e.location_id, 'line': e.line, 'is_town': e.is_town, 'is_district': e.is_district }));
         this.allgeo = res;
-       
-        this.geo = this.allgeo.sort((a, b) => a.label < b.label ? -1 : (a.label > b.label ? 1 : 0));
+
+        this.geo = this.allgeo
+          .sort((a, b) => a.label.localeCompare(b.label, 'ru'));
         if (this.initialGeoId != null && this.initialGeoType && !this.isOnline) {
-          let initialGeoVal = this.geo.find((e) => e.type == this.initialGeoType && e.id==this.initialGeoId);
-          this.selectedGeo=initialGeoVal.value;
-         
+          const initialGeoVal = this.geo.find(e => e.type == this.initialGeoType && e.id == this.initialGeoId);
+          this.selectedGeo = initialGeoVal ? initialGeoVal.value : null;
         }
       });
 

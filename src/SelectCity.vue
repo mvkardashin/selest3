@@ -1,7 +1,7 @@
 <template>
-  <div class="city-selector">
-    <VueSelect v-model="selectedCity" :options="cities" @option-selected="onSelectCity" :isClearable="false"
-      placeholder="Выберите город">
+  <div class="city-selector" @mouseenter="loadCities" @click="loadCities" @focusin="loadCities">
+    <VueSelect v-model="selectedCity" :options="cities" @option-selected="onSelectCity" @open="loadCities"
+      @focus="loadCities" :isClearable="false" placeholder="Выберите город">
       <template #no-options>
         Не найдено
       </template>
@@ -16,39 +16,106 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineAsyncComponent, defineComponent } from 'vue';
 
-import VueSelect from "vue3-select-component";
+const VueSelect = defineAsyncComponent(() => import("vue3-select-component"));
 export default defineComponent({
   props:
   {
     'initialCity': Number,
+    'initialCityLabel': String,
   },
   name: 'SelectCity',
   components: { VueSelect },
   data() {
     return {
       selectedCity: null,
-      cities: []
+      cities: [],
+      citiesLoading: false,
+      citiesLoaded: false
     }
   },
   computed: {
 
   },
   methods: {
-    onSelectCity(option) {     
-      window.location = '/'+option.code
+    onSelectCity(option) {
+      window.location = '/' + option.code
 
     },
+    getCachedCities() {
+      try {
+        const cached = sessionStorage.getItem('select_cities_v1');
+        if (!cached) return null;
+        const parsed = JSON.parse(cached);
+        if (!parsed?.ts || !Array.isArray(parsed?.data)) return null;
+        if (Date.now() - parsed.ts > 24 * 60 * 60 * 1000) return null;
+        return parsed.data;
+      } catch (e) {
+        return null;
+      }
+    },
+    setCachedCities(data) {
+      try {
+        sessionStorage.setItem('select_cities_v1', JSON.stringify({ ts: Date.now(), data }));
+      } catch (e) {
+        // ignore cache write errors
+      }
+    },
+    loadCities() {
+      if (this.citiesLoading || this.citiesLoaded) return;
+      this.citiesLoading = true;
+
+      const cached = this.getCachedCities();
+      if (cached) {
+        this.cities = cached;
+        this.citiesLoaded = true;
+        this.citiesLoading = false;
+        return;
+      }
+
+      const citiesUri = '/site/region';
+      fetch(citiesUri).then(response => response.json())
+        .then(data => {
+          const res = data.map((e) => ({ 'label': e.title, "value": e.id, "code": e.code, "id": e.id, "region": e.region }));
+          this.cities = res.sort((a, b) => a.label.localeCompare(b.label, 'ru'));
+          if (this.initialCity != null) {
+            const match = this.cities.find(c => c.value === this.initialCity);
+            if (!match && this.initialCityLabel) {
+              this.cities.unshift({
+                label: this.initialCityLabel,
+                value: this.initialCity,
+                code: null,
+                id: this.initialCity,
+                region: ''
+              });
+            }
+            this.selectedCity = this.initialCity;
+          }
+          this.setCachedCities(this.cities);
+        })
+        .finally(() => {
+          this.citiesLoaded = true;
+          this.citiesLoading = false;
+        });
+    }
   },
   mounted() {
-    const citiesUri = '/site/region'
-    fetch(citiesUri).then(response => response.json())
-      .then(data => {
-        let res = data.map((e) => ({ 'label': e.title, "value": e.id, "code": e.code, "id": e.id, "region": e.region }));
-        this.cities = res.sort((a, b) => a.label - b.label);
-      });
-    this.selectedCity=this.initialCity;
+    this.selectedCity = this.initialCity;
+    if (this.initialCityLabel && this.initialCity != null) {
+      this.cities = [{
+        label: this.initialCityLabel,
+        value: this.initialCity,
+        code: null,
+        id: this.initialCity,
+        region: ''
+      }];
+    }
+    const cached = this.getCachedCities();
+    if (cached) {
+      this.cities = cached;
+      this.citiesLoaded = true;
+    }
   }
 
 })

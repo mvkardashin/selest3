@@ -7,12 +7,55 @@
 <body>
     <div id="app">
 
-        <select-module  city-code="repetitors" initial-subject=1 initial-category=101 initial-online=0 initial-age=1  city=1 initial-geo-type="area" initial-geo-id=1 initial-price="min=0&max=0"></select-module>
+        <!-- <select-module  city-code="repetitors" initial-subject=1 initial-category=101 initial-online=0 initial-age=1  city=1 initial-geo-type="area" initial-geo-id=1 initial-price="min=0&max=0"></select-module> -->
         <!-- <select-module city-code="repetitors" initial-subject="1" initial-category initial-online="0" initial-age=""
-            initial-price="min=&amp;max=" city="1" initial-geo-type="" initial-geo-id=""></select-module>
-        <select-wizard style="width: 100%;"></select-wizard> -->
-        <select-city initial-city=2></select-city>
+            initial-price="min=&amp;max=" city="1" initial-geo-type="" initial-geo-id=""></select-module>-->
+        <select-wizard style="width: 100%;"></select-wizard> 
+        <div id="select-module-lazy"
+            data-city-code="repetitors"
+            data-initial-subject="1"
+            data-initial-category="101"
+            data-initial-online="0"
+            data-initial-age="1"
+            data-city="1"
+            data-initial-geo-type="area"
+            data-initial-geo-id="1"
+            data-initial-price="min=0&max=0"></div>
+        <select-city initial-city=2 initial-city-label="Москва"></select-city>
     </div>
 
+    <script>
+        (function () {
+            const placeholder = document.getElementById('select-module-lazy');
+            if (!placeholder) return;
+
+            const createSelectModule = () => {
+                if (placeholder.dataset.inserted) return;
+                const el = document.createElement('select-module');
+                Object.keys(placeholder.dataset).forEach((key) => {
+                    if (key === 'inserted') return;
+                    const attr = key.replace(/[A-Z]/g, (m) => '-' + m.toLowerCase());
+                    el.setAttribute(attr, placeholder.dataset[key]);
+                });
+                placeholder.appendChild(el);
+                placeholder.dataset.inserted = '1';
+            };
+
+            if (!('IntersectionObserver' in window)) {
+                createSelectModule();
+                return;
+            }
+
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    createSelectModule();
+                    io.disconnect();
+                });
+            }, { rootMargin: '200px 0px' });
+
+            io.observe(placeholder);
+        })();
+    </script>
 
 </body>

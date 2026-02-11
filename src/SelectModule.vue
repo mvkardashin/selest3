@@ -72,7 +72,10 @@ export default defineComponent({
     'initialGeoId': Number,
     'initialSubject': Number,
     'initialCategory': Number,
-    'initialOnline': Boolean,
+    'initialOnline': {
+      type: [Boolean, Number, String],
+      default: 0,
+    },
     'initialPrice': String,
     'initialAge': Number,
 
@@ -156,6 +159,11 @@ export default defineComponent({
     }
   },
   methods: {
+    parseBool(v) {
+      if (v === true || v === 1 || v === '1' || v === 'true') return true;
+      if (v === false || v === 0 || v === '0' || v === 'false' || v == null) return false;
+      return false;
+    },
     onSelectSubject(option) {
       this.filteredCategories = this.allsubjects.filter((subject) => { return subject.parent_id == option.value });
       this.selectedCategory = null;
@@ -191,8 +199,7 @@ export default defineComponent({
     }
   },
   mounted() {
-    this.isOnline = !!this.initialOnline;
-    if (this.isOnline) this.selectedGeo = null;
+    
     const subjectsUri = '/site/subject';
     const geoUri = '/site/geo';
     fetch(subjectsUri).then(r => r.json()).then(data => {
@@ -233,10 +240,8 @@ export default defineComponent({
     if (this.initialAge != null && this.initialAge != 0) {
       this.selectedAge = "age=" + this.initialAge
     }
-    if (this.initialOnline != null && this.initialOnline == true) {
-      this.isOnline = true;
-      this.selectedGeo = null;
-    }
+    this.isOnline = this.parseBool(this.initialOnline);
+    if (this.isOnline) this.selectedGeo = null;
   }
 
 })

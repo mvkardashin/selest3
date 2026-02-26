@@ -19,6 +19,77 @@
 import { defineAsyncComponent, defineComponent } from 'vue';
 
 const VueSelect = defineAsyncComponent(() => import("vue3-select-component"));
+const NO_TOUCH_PREFIXES = [
+  '/view',
+  '/blog',
+  '/about',
+  '/wizard',
+  '/partner',
+  '/online',
+  '/info',
+  '/select',
+  '/site',
+  '/api',
+  '/login',
+  '/signup',
+  '/register',
+  '/contacts',
+  '/privacy',
+  '/terms',
+];
+const ONLINE_SEGMENT = 'online';
+
+function startsWithAnyPrefix(pathname, prefixes) {
+  return prefixes.some((p) => pathname === p || pathname.startsWith(p + '/'));
+}
+
+function splitPath(pathname) {
+  const clean = pathname.replace(/\/{2,}/g, '/').replace(/\/+$/, '');
+  return clean.split('/').filter(Boolean);
+}
+
+function buildReturnUrl(currentHref, newCityCode, knownCityCodes) {
+  const u = new URL(currentHref, window.location.origin);
+
+  if (startsWithAnyPrefix(u.pathname, NO_TOUCH_PREFIXES)) {
+    return u.pathname + u.search + u.hash;
+  }
+
+  if ((u.pathname === '/' || u.pathname === '') && newCityCode) {
+    return `/${newCityCode}/` + u.search + u.hash;
+  }
+
+  const parts = splitPath(u.pathname);
+  if (parts.length >= 1) {
+    const [cityCode, ...tail] = parts;
+    if (knownCityCodes?.has(cityCode)) {
+      if (tail.includes(ONLINE_SEGMENT)) {
+        return u.pathname + u.search + u.hash;
+      }
+      if (newCityCode) {
+        const tailPath = tail.length ? `/${tail.join('/')}` : '';
+        return `/${newCityCode}${tailPath}` + u.search + u.hash;
+      }
+      return u.pathname + u.search + u.hash;
+    }
+  }
+
+  return u.pathname + u.search + u.hash;
+}
+
+function onCitySelected(selection, knownCityCodes) {
+  const id = selection?.id;
+  if (!id) return;
+
+  const returnUrl = buildReturnUrl(window.location.href, selection?.code ?? null, knownCityCodes);
+  const url =
+    '/site/set-location-id'
+    + '?id=' + encodeURIComponent(String(id))
+    + '&return=' + encodeURIComponent(returnUrl);
+
+  window.location.href = url;
+}
+
 export default defineComponent({
   props:
   {
@@ -36,12 +107,21 @@ export default defineComponent({
     }
   },
   computed: {
-
+    knownCityCodes() {
+      const codes = new Set(this.cities.map((city) => city.code).filter(Boolean));
+      codes.add('repetitors');
+      return codes;
+    }
   },
   methods: {
     onSelectCity(option) {
-      window.location = '/' + option.code
-
+      onCitySelected(
+        {
+          id: option?.id ?? option?.value,
+          code: option?.code ?? null
+        },
+        this.knownCityCodes
+      );
     },
     getCachedCities() {
       try {

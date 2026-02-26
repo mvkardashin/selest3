@@ -259,6 +259,12 @@ export default defineComponent({
   margin-top: 20px;
 }
 
+.filter__group {
+  max-height: 100dvh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .online_row {
   display: flex;
 }
